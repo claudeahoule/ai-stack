@@ -56,7 +56,6 @@ podman run --rm -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v 
   }
 }
 ```
-
   - Start mcpo podman container...
 ```
 podman run --rm -d --name mcpo \
@@ -65,4 +64,8 @@ podman run --rm -d --name mcpo \
   ghcr.io/open-webui/mcpo:latest \
   --port 8001 --config /app/config/config.json
 ```
+  - configure Open WebUI for MCPO
+    - **Admin Panel / Settings / Integrations**
+      - Add a connection by clicking on the plus sign (+) to the right of **Manage Tool Servers**
+      - eg. 'mcpo-time-server' for Name, ID, and Description (or tweak as you wish), then URL = `http://localhost:8001/time-server`, then **Save**
 
