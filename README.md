@@ -33,3 +33,36 @@ podman run --rm -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v 
 
 ```
 
+- MCPO
+  - `podman pull ghcr.io/open-webui/mcpo:latest`
+  - install uv & npx on system
+  - `mkdir -p $HOME/mcpo/config ; mkdir $HOME/mcpo/filesystem ; chmod a+rwx $HOME/mcpo/filesystem`
+  - sample config file `$HOME/mcpo/config/config.json` ...
+```
+{
+  "mcpServers": {
+    "time-server": {
+      "command": "uvx",
+      "args": ["mcp-server-time", "--local-timezone=America/Toronto"]
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/mnt/filesystem"]
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": ["mcp-server-fetch"]
+    }
+  }
+}
+```
+
+  - Start mcpo podman container...
+```
+podman run --rm -d --name mcpo \
+  -v $HOME/mcpo/config:/app/config:Z \
+  -v $HOME/mcpo/filesystem:/mnt/filesystem:Z \
+  ghcr.io/open-webui/mcpo:latest \
+  --port 8001 --config /app/config/config.json
+```
+
