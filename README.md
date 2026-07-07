@@ -148,3 +148,44 @@ podman run --rm -d --name mcpo \
 ---
 
 </details>
+
+---
+
+<details>
+  <summary>My hardware</summary>
+
+<br>
+
+### System 1 (Primary Ollama instance)
+- i9-12900 CPU
+- 128 GB DDR5 RAM
+- NVIDIA RTX 3070 (8GB VRAM)
+- Ollama instance #1 (Primary)
+- docling-serve (GPU enabled) - podman container
+- Fedora Workstation
+
+### System 2 (Secondary Ollama instance)
+- i9-12900K CPU
+- 32 GB DDR5 RAM
+- NVIDIA RTX 3080 TI (12GB VRAM)
+- Ollama instance #2 (Secondary)
+- MS Windows 11 Home
+
+### System 3 (Open WebUI instance)
+- Virtual Machine (KVM/libvirt)
+- 8 virtual CPUs
+- 24 GB of virtual RAM
+- 100 GB of disk space for Open WebUI and documents
+  - openwebui userid is under /home/openwebui
+- Open WebUI container instance (open-webui) running in podman
+- Additional podman containers running in same pod as open-webui...
+  - pgvector
+  - open-terminal
+  - searxng
+  - playwright
+  - mcpo
+
+---
+
+</details>
+
