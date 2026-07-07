@@ -10,6 +10,9 @@
 - docling-serve
 
 ## Installing components
+
+<details>
+  <summary>### NVIDIA drivers</summary>
 - If you want your AI stack components to have access to your GPU, ensure you have installed all of the latest drivers for your GPU card
   - For NVIDIA, once I've installed the appropriate and latest driver for my card, I check using nvidia-smi as follows...
 ```
@@ -19,6 +22,7 @@ nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,utilizatio
 timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], memory.total [MiB], memory.free [MiB], memory.used [MiB]
 2026/06/09 23:21:09.412, NVIDIA GeForce RTX 3070, 50, 1 %, 1 %, 8192 MiB, 6759 MiB, 1081 MiB
 ```
+</details>
 
 - [Ollama](https://github.com/ollama/ollama)
   - Install however best works for you based on the link provided
