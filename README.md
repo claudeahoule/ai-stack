@@ -36,7 +36,7 @@ timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], m
 
   ollama run qwen3.5:2b-q4_K_M
   ```
-  - type 'bye' to exit ollama chat
+  - type '/bye' to exit ollama chat
 
 - [Open WebUI](https://github.com/open-webui/open-webui)
   - You can read the official doc in the link above, or I just do it this way...
