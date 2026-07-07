@@ -22,8 +22,11 @@ nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,utilizatio
 timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], memory.total [MiB], memory.free [MiB], memory.used [MiB]
 2026/06/09 23:21:09.412, NVIDIA GeForce RTX 3070, 50, 1 %, 1 %, 8192 MiB, 6759 MiB, 1081 MiB
 ```
+
 </details>
 
+<details>
+  <summary>### Ollama</summary>
 - [Ollama](https://github.com/ollama/ollama)
   - Install however best works for you based on the link provided
   - I've installed Ollama on Linux via `curl -fsSL https://ollama.com/install.sh | sh` as well as containers running in podman
@@ -41,6 +44,8 @@ timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], m
   ollama run qwen3.5:2b-q4_K_M
   ```
   - type '/bye' to exit ollama chat
+
+</details>
 
 - [Open WebUI](https://github.com/open-webui/open-webui)
   - You can read the official doc in the link above, or I just do it this way...
