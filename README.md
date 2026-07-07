@@ -69,3 +69,19 @@ podman run --rm -d --name mcpo \
       - Add a connection by clicking on the plus sign (+) to the right of **Manage Tool Servers**
       - eg. 'mcpo-time-server' for Name, ID, and Description (or tweak as you wish), then URL = `http://localhost:8001/time-server`, then **Save**
 
+---
+
+## Other components in my AI stack that I still need to document are...
+- pgvector
+  - just to replace the default chromadb that Open WebUI comes configured with
+  - also, I only use pgvector for document indexing, not for Open WebUI configuration...at least not yet
+- searxng
+  - as the name implies, this allows you to search the web more effectively from a chat session within Open WebUI
+  - but the default config throws a lot of warnings and errors, so I tweaked mine
+  - I also restricted my searxng config to NOT use Google for searches. Main reasoning is that there are a lot of errors and warnings generated as Google detects bots, of course.
+  - Also, if I want to search Google, then I'll search Google !
+  - Lastly, I purposely restricted searxng to NOT search Reddit
+- playwright
+  - Works nicely with searxng once web searches have hits to read. Playwright is good at reading web content and getting around bot restrictions
+- open-terminal
+  - playground to run commands and test things out while in a chat session
