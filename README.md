@@ -75,6 +75,10 @@ podman run --rm -d --name mcpo \
 - pgvector
   - just to replace the default chromadb that Open WebUI comes configured with
   - also, I only use pgvector for document indexing, not for Open WebUI configuration...at least not yet
+- docling-serve
+  - **Content Extraction Engine** in Open WebUI
+  - I've run both GPU and CPU only modes for docling-serve container
+  - Unfortunately I don't have any side-by-side test results, but I can say from what I've observed anecdotaly, GPU runs much better when loading docs that need docling for processing (like PDFs with images, maps, and charts that are not real text)
 - searxng
   - as the name implies, this allows you to search the web more effectively from a chat session within Open WebUI
   - but the default config throws a lot of warnings and errors, so I tweaked mine
