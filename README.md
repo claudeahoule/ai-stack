@@ -25,8 +25,11 @@ timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], m
   - I've installed Ollama on Linux via `curl -fsSL https://ollama.com/install.sh | sh` as well as containers running in podman
     - Both options work fine, but running ollama in a container (docker or podman) can sometimes require a little more set up for GPU access
   - If you installed Ollama using the above 'curl...' command, it should set up a systemd service and dedicated user and group (ollama:ollama) for you
-  - If you want to open up Ollama to your home network from a **firewalld** perspective, just add port 11434/tcp...
-    eg. `firewall-cmd --add-port=11434/tcp ; firewall-cmd --add-port=11434/tcp --permanent`
+  - If you want to open up Ollama to your home network from a **firewalld** perspective, just add port 11434/tcp.
+  ```
+  firewall-cmd --add-port=11434/tcp
+  firewall-cmd --add-port=11434/tcp --permanent
+  ```
   - If you want to have a little fun chatting with Ollama before you dive into Open WebUI, you can simply do this...
   ```
   ollama pull qwen3.5:2b-q4_K_M
