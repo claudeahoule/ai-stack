@@ -14,6 +14,8 @@
 <details>
   <summary>NVIDIA drivers</summary>
 
+<br>
+
 - If you want your AI stack components to have access to your GPU, ensure you have installed all of the latest drivers for your GPU card
   - For NVIDIA, once I've installed the appropriate and latest driver for my card, I check using nvidia-smi as follows...
 ```
@@ -30,6 +32,8 @@ timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], m
 
 <details>
   <summary>Ollama</summary>
+
+<br>
 
 - [Ollama](https://github.com/ollama/ollama)
   - Install however best works for you based on the link provided
@@ -56,6 +60,8 @@ timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], m
 <details>
   <summary>Open WebUI</summary>
 
+<br>
+
 - [Open WebUI](https://github.com/open-webui/open-webui)
   - You can read the official doc in the link above, or I just do it this way...
   ```
@@ -71,6 +77,8 @@ timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], m
 
 <details>
   <summary>MCPO</summary>
+
+<br>
 
 - MCPO
   - `podman pull ghcr.io/open-webui/mcpo:latest`
@@ -116,6 +124,8 @@ podman run --rm -d --name mcpo \
 
 <details>
   <summary>Other components in my AI stack that I still need to document are...</summary>
+
+<br>
 
 - pgvector
   - just to replace the default chromadb that Open WebUI comes configured with
