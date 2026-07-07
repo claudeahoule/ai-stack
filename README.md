@@ -13,6 +13,7 @@
 
 <details>
   <summary>### NVIDIA drivers</summary>
+
 - If you want your AI stack components to have access to your GPU, ensure you have installed all of the latest drivers for your GPU card
   - For NVIDIA, once I've installed the appropriate and latest driver for my card, I check using nvidia-smi as follows...
 ```
@@ -23,7 +24,11 @@ timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], m
 2026/06/09 23:21:09.412, NVIDIA GeForce RTX 3070, 50, 1 %, 1 %, 8192 MiB, 6759 MiB, 1081 MiB
 ```
 
+</details>
+
+<details>
   <summary>### Ollama</summary>
+
 - [Ollama](https://github.com/ollama/ollama)
   - Install however best works for you based on the link provided
   - I've installed Ollama on Linux via `curl -fsSL https://ollama.com/install.sh | sh` as well as containers running in podman
@@ -41,8 +46,11 @@ timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], m
   ollama run qwen3.5:2b-q4_K_M
   ```
   - type '/bye' to exit ollama chat
-
+  
 </details>
+
+<details>
+  <summary>### Open WebUI</summary>
 
 - [Open WebUI](https://github.com/open-webui/open-webui)
   - You can read the official doc in the link above, or I just do it this way...
@@ -52,6 +60,10 @@ timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], m
   podman run --rm -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main
   
   ```
+</details>
+
+<details>
+  <summary>MCPO</summary>
 
 - MCPO
   - `podman pull ghcr.io/open-webui/mcpo:latest`
@@ -88,6 +100,8 @@ podman run --rm -d --name mcpo \
     - **Admin Panel / Settings / Integrations**
       - Add a connection by clicking on the plus sign (+) to the right of **Manage Tool Servers**
       - eg. 'mcpo-time-server' for Name, ID, and Description (or tweak as you wish), then URL = `http://localhost:8001/time-server`, then **Save**
+
+</details>
 
 ---
 
