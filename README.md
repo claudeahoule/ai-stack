@@ -12,7 +12,7 @@
 ## Installing components
 
 <details>
-  <summary>### NVIDIA drivers</summary>
+  <summary>NVIDIA drivers</summary>
 
 - If you want your AI stack components to have access to your GPU, ensure you have installed all of the latest drivers for your GPU card
   - For NVIDIA, once I've installed the appropriate and latest driver for my card, I check using nvidia-smi as follows...
@@ -27,7 +27,7 @@ timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], m
 </details>
 
 <details>
-  <summary>### Ollama</summary>
+  <summary>Ollama</summary>
 
 - [Ollama](https://github.com/ollama/ollama)
   - Install however best works for you based on the link provided
@@ -50,7 +50,7 @@ timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], m
 </details>
 
 <details>
-  <summary>### Open WebUI</summary>
+  <summary>Open WebUI</summary>
 
 - [Open WebUI](https://github.com/open-webui/open-webui)
   - You can read the official doc in the link above, or I just do it this way...
