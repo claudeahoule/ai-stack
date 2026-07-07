@@ -105,7 +105,9 @@ podman run --rm -d --name mcpo \
 
 ---
 
-## Other components in my AI stack that I still need to document are...
+<details>
+  <summary>Other components in my AI stack that I still need to document are...</summary>
+
 - pgvector
   - just to replace the default chromadb that Open WebUI comes configured with
   - also, I only use pgvector for document indexing, not for Open WebUI configuration...at least not yet
@@ -123,3 +125,5 @@ podman run --rm -d --name mcpo \
   - Works nicely with searxng once web searches have hits to read. Playwright is good at reading web content and getting around bot restrictions
 - open-terminal
   - playground to run commands and test things out while in a chat session
+
+</details>
