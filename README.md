@@ -40,12 +40,12 @@ timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], m
 
 - [Open WebUI](https://github.com/open-webui/open-webui)
   - You can read the official doc in the link above, or I just do it this way...
-```
-podman pull ghcr.io/open-webui/open-webui:main
-
-podman run --rm -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main
-
-```
+  ```
+  podman pull ghcr.io/open-webui/open-webui:main
+  
+  podman run --rm -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main
+  
+  ```
 
 - MCPO
   - `podman pull ghcr.io/open-webui/mcpo:latest`
