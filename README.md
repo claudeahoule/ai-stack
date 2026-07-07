@@ -23,9 +23,6 @@ timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], m
 2026/06/09 23:21:09.412, NVIDIA GeForce RTX 3070, 50, 1 %, 1 %, 8192 MiB, 6759 MiB, 1081 MiB
 ```
 
-</details>
-
-<details>
   <summary>### Ollama</summary>
 - [Ollama](https://github.com/ollama/ollama)
   - Install however best works for you based on the link provided
