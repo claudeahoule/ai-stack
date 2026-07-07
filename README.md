@@ -122,6 +122,8 @@ podman run --rm -d --name mcpo \
 
 ---
 
+## Miscellaneous schtuff
+
 <details>
   <summary>Other components in my AI stack that I still need to document are...</summary>
 
@@ -148,8 +150,6 @@ podman run --rm -d --name mcpo \
 ---
 
 </details>
-
----
 
 <details>
   <summary>My hardware</summary>
@@ -184,6 +184,36 @@ podman run --rm -d --name mcpo \
   - searxng
   - playwright
   - mcpo
+
+---
+
+</details>
+
+
+<details>
+  <summary>LLMs that I have tested and had fun with</summary>
+
+<br>
+
+### Models I'm currently using (as of 2026-07-07)
+- gemma4:12b-it-q4_K_M
+- qwen2.5-coder:7b-base-q4_K_M
+- bge-m3:latest
+- nomic-embed-text:latest
+- deepseek-r1:14b-qwen-distill-q4_K_M
+- mistral-small:24b-instruct-2501-q4_K_M
+- qwen3.5:9b-q4_K_M
+
+### Models I've tried and replaced/consolidated with the above at some point
+- command-r:35b-08-2024-q4_K_M
+- qwen2.5:7b-instruct-q4_K_M
+- qwen2.5:14b-instruct-q4_K_M
+- qwen3.6:27b-q4_K_M
+- ministral-3:14b-instruct-2512-q4_K_M
+- llama3.1:8b-instruct-q4_K_M
+- granite4.1:8b-q4_K_M
+- llama3.2:3b-instruct-q4_K_M
+- and many, many others, some large, some small
 
 ---
 
