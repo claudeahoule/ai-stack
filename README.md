@@ -226,8 +226,6 @@ podman run --rm -d --name mcpo \
 <details>
   <summary>Prompts</summary>
 
-<br>
-
   <details>
     <summary>VAI (Virtual Assitant Inteligence)</summary>
 
