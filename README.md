@@ -26,6 +26,11 @@ timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], m
 2026/06/09 23:21:09.412, NVIDIA GeForce RTX 3070, 50, 1 %, 1 %, 8192 MiB, 6759 MiB, 1081 MiB
 ```
 
+- If you want to continuously monitor your card's usage...
+```
+nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.total,memory.free,memory.used --format=csv -l 5
+```
+
 ---
 
 </details>
