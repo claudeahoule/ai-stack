@@ -226,7 +226,7 @@ podman run --rm -d --name mcpo \
 <details>
   <summary>Prompts</summary>
 
-  <details>
+  <details style="padding-left: 20px;">
     <summary>VAI (Virtual Assitant Inteligence)</summary>
 
     ```
@@ -255,7 +255,7 @@ podman run --rm -d --name mcpo \
 
   </details>
 
-  <details>
+  <details style="padding-left: 20px;">
     <summary>Expert Linux SysAdm</summary>
 
     ```
@@ -275,7 +275,7 @@ podman run --rm -d --name mcpo \
 
   </details>
 
-  <details>
+  <details style="padding-left: 20px;">
     <summary>Code Assistant</summary>
 
     ```
@@ -302,7 +302,7 @@ podman run --rm -d --name mcpo \
 
   </details>
 
-  <details>
+  <details style="padding-left: 20px;">
     <summary>Narrative Architect - Fantasy</summary>
 
     ```
@@ -322,7 +322,7 @@ podman run --rm -d --name mcpo \
 
   </details>
 
-  <details>
+  <details style="padding-left: 20px;">
     <summary>Novelist</summary>
 
     ```
@@ -335,7 +335,7 @@ podman run --rm -d --name mcpo \
 
   </details>
 
-  <details>
+  <details style="padding-left: 20px;">
     <summary>RPG Dungeon Master</summary>
 
     ```
@@ -356,7 +356,7 @@ podman run --rm -d --name mcpo \
 
   </details>
 
-  <details>
+  <details style="padding-left: 20px;">
     <summary>Heavy Document (RAG) Work</summary>
 
     ```
@@ -389,7 +389,7 @@ podman run --rm -d --name mcpo \
 
   </details>
 
-  <details>
+  <details style="padding-left: 20px;">
     <summary>ChefRemy</summary>
 
     ```
@@ -399,7 +399,7 @@ podman run --rm -d --name mcpo \
 
   </details>
 
-  <details>
+  <details style="padding-left: 20px;">
     <summary>Argyle</summary>
 
     ```
