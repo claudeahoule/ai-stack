@@ -669,6 +669,8 @@ podman run --rm -d --pod ai-stack --name open-terminal \
 <details>
   <summary>Troubleshooting</summary>
 
+<blockquote>
+
 ### Monitoring NVIDIA GPU usage
 ```
 nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.total,memory.free,memory.used --format=csv
@@ -702,5 +704,7 @@ OLLAMA_HOST=10.0.0.234:11434 ollama ps
 ```
 journalctl -u ollama --since "15 minutes ago" --no-pager
 ```
+
+</blockquote>
 
 </details>
