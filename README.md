@@ -66,8 +66,8 @@ nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.tot
 
 <br>
 
-  - Now that was fun, or maybe not. But what's next in order to do something meaningful with this?
-  - **Open WebUI** helps a lot with that!
+- Now that was fun, or maybe not. But what's next in order to do something meaningful with this?
+- **Open WebUI** helps a lot with that!
 
 ---
 
