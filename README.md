@@ -236,7 +236,7 @@ podman run --rm -d --pod ai-stack --name playwright \
 
 - pgvector
 
-</details
+</details>
 
 <details>
   <summary>docling-serve</summary>
