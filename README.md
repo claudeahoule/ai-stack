@@ -257,6 +257,16 @@ podman run --rm -d --pod ai-stack --name open-webui \
   ghcr.io/open-webui/open-webui:main
 ```
 
+  - From what I understand of how **Open WebUI** is using pgvector with the aforementioned options in starting open-webui podman container, pgvector is now the index for all documents loaded from this point on within **Open WebUI**.
+    - So if you had already loaded some documents into **Open WebUI**, then you'll likely need to do that again.
+    - This is a good time to change your document embedding option with **Open WebUI**...
+      - First, go to your Ollama instance, and run `ollama pull bge-m3:latest`
+      - Go back to **Open WebUI**, under **Admin Panel / Settings / Documents**
+      - Set the **Embedding Model Engine** to Ollama
+      - Configur the **URL** to point to your Ollama instance (eg. `http://10.0.0.123:11434`)
+      - Set the **Embedding Model** to `bge-m3:latest`
+      - Click **Save** at the bottom of the page
+
 </details>
 
 <details>
