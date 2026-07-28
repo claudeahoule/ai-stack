@@ -661,6 +661,7 @@ podman run --rm -d --pod ai-stack --name open-terminal \
       - Just make sure to open up port 11434 on your Windows PC/Laptop firewall
     - Install Oracle Virtualbox on your PC as well, and then download and build a Linux VM
       - I don't know how well the installation docs I provided would work on a Ubuntu image, but I know they'll work on Fedora 43 and 44 Workstation or Server
+    - Might work under WSL2 on Windows
     - Once you have Open WebUI running in a VM, just configure **Admin Panel / Settings / Connections** to point to your PC/Laptop internal virtual IP (you may need to open up that firewall as well for port 11434...not sure).
 
 </details>
