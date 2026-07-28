@@ -110,6 +110,7 @@ podman pod create --name ai-stack -p 3000:8080
 <br>
 
 - MCPO
+  - mcpo isn't absolutely necessary to get started with Open WebUI. You can post-pone the installationa and set up of mcpo for later if you prefer.
   - `podman pull ghcr.io/open-webui/mcpo:latest`
   - install uv & npx on system
   - `mkdir -p $HOME/mcpo/config ; mkdir $HOME/mcpo/filesystem ; chmod a+rwx $HOME/mcpo/filesystem`
