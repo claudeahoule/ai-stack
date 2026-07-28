@@ -138,6 +138,35 @@ podman run --rm -d --pod ai-stack --name mcpo \
 
 </details>
 
+<details>
+  <summary>searxng</summary>
+
+<br>
+
+- [searxng](https://github.com/searxng/searxng)
+  - `podman pull docker.io/searxng/searxng:latest`
+  - `mkdir -p $HOME/searxng/data ; mkdir -p $HOME/searxng/config`
+  - copy the minimalist example [settings.yml](https://github.com/claudeahoule/ai-stack/blob/main/components/searxng/config/settings.yml) file into `$HOME/searxng/config/settings.yml`
+    - note the following search engines have been disabled in this configuration file:
+      - google
+      - reddit
+  - Start searxng podman container...
+```
+podman run --rm -d --pod ai-stack --name searxng \
+  -e GRANIAN_PORT=8888 \
+  -v "$HOME/searxng/config/:/etc/searxng:Z" \
+  -v "$HOME/searxng/data/:/var/cache/searxng:Z" \
+  docker.io/searxng/searxng:latest
+```
+
+  - In **Open WebUI**, under **Admin Panel / Settings / Web Search**...
+    - ensure that **Web Search** is **enabled**
+    - **Web Search Engine** is set to **searxng**
+    - Under **Searxng Query URL**, set to `http://localhost:8888/search?q=<query>`
+    - Leave all other settings at defaults for now
+
+</details>
+
 ---
 
 ## Miscellaneous schtuff
