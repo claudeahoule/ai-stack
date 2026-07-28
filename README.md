@@ -660,7 +660,7 @@ podman run --rm -d --pod ai-stack --name open-terminal \
   <details>
     <summary>consult_expert</summary>
 
-    **Consult a specialized expert Workspace/Model in Open WebUI that has access to specialized Workspace/Knowlege base material.**
+    Consult a specialized expert Workspace/Model in Open WebUI that has access to specialized Workspace/Knowlege base material.
 
     - In **Open WebUI**, under **Workspace / Tools**
       - Create a **+ New Tool**
