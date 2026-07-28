@@ -643,6 +643,8 @@ podman run --rm -d --pod ai-stack --name open-terminal \
 <details>
   <summary>Tools and Functions</summary>
 
+  <blockquote>
+
   <details>
     <summary>consult_expert</summary>
 
@@ -724,6 +726,8 @@ podman run --rm -d --pod ai-stack --name open-terminal \
     - nagios - fetch and summarize Nagios service alerts.
                   
   </details>
+
+  </blockquote>
       
 </details>
 
