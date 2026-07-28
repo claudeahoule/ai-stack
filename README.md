@@ -109,8 +109,15 @@ podman pod create --name ai-stack -p 3000:8080
     - **Connection Type** should be `External`
     - **URL** should be set to where your Ollama instance is running (eg. IP 10.0.0.123) then `http://10.0.0.123:11434`
     - Click the recycle button next to URL definition to do a connectivity test.
-    - If successful, Open WebUI now has access to all of the models you have pulled into Ollama thus far. 
-    - If not, then Google. Firewall, routes, wrong IPs, are all things to chase down and figure out why you can't connect.
+      - If successful, Open WebUI now has access to all of the models you have pulled into Ollama thus far (eg. `qwen3.5:2b-q4_K_M`). 
+      - If not, then Google. Firewall, routes, wrong IPs, are all things to chase down and figure out why you can't connect.
+  - Hopefully at this point you're ready to play with **Open WebUI**'s chat sessions
+    - Open a **New Chat** session from the left-hand menu (Sidebar)
+      - if you don't see the **Sidebar**, click on the **OI** at the top left to expand the **Sidebar** in **Open WebUI**
+    - Assuming you've followed this doc to some degree, you probably only have the `qwen3.5:2b-q4_K_M` model available in a chat session.
+      - The model should show up automagically in the pull-down list at the top left of the chat session itself
+    - Start chatting with your AI stack
+    - It'll be limited on what it can do for you, but it's a start. The good stuff comes later as you add on more tools and capabilities.
 
 ---
 
