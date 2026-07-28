@@ -237,7 +237,7 @@ podman run --rm -d --pod ai-stack --name playwright \
 </details>
 
 <details>
-  <summary>pgvector</summary>
+  <summary>pgvector (and setting embedding model)</summary>
 
 <br>
 
