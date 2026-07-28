@@ -658,42 +658,41 @@ podman run --rm -d --pod ai-stack --name open-terminal \
       <li>Give it a description of <code>Consults a specialized expert model within the system</code></li>
       <li>Copy/Paste the following code block</li>
       <pre><code>
-      """
-      title: Expert Consultant
-      author: you
-      version: 1.0
-      description: Consults a specialized expert model within the system.
-      requirements: requests
-      """
-      
-      import requests
-      from pydantic import BaseModel, Field
-      
-      
-      class Tools:
-          class Valves(BaseModel):
-              api_key: str = Field(
-                  default="",
-                  description="Open WebUI API key (Settings > Account > API Keys) used to authenticate internal calls.",
-              )
-              base_url: str = Field(
-                  default="http://localhost:3000",
-                  description="Base URL of your Open WebUI instance.",
-              )
-      
-          def __init__(self):
-              self.valves = self.Valves()
-      
-          def consult_expert(self, query: str, model_id: str) -> str:
-              """
-              Consults a specialized expert model within the system to retrieve
-              specialized information before synthesizing a response for the user.
-              :param query: The specific question or data request to be sent to the expert.
-              :param model_id: The internal ID of the target model (e.g., 'Med1' or 'Expert Linux SysAdm').
-              :return: The raw text response from the expert model.
-              """
-              url = self.valves.base_url + "/api/chat/completions"
-      </code></pre>
+"""
+title: Expert Consultant
+author: you
+version: 1.0
+description: Consults a specialized expert model within the system.
+requirements: requests
+"""
+
+import requests
+from pydantic import BaseModel, Field
+
+class Tools:
+    class Valves(BaseModel):
+        api_key: str = Field(
+            default="",
+            description="Open WebUI API key (Settings > Account > API Keys) used to authenticate internal calls.",
+        )
+        base_url: str = Field(
+            default="http://localhost:3000",
+            description="Base URL of your Open WebUI instance.",
+        )
+
+    def __init__(self):
+        self.valves = self.Valves()
+
+    def consult_expert(self, query: str, model_id: str) -> str:
+        """
+        Consults a specialized expert model within the system to retrieve
+        specialized information before synthesizing a response for the user.
+        :param query: The specific question or data request to be sent to the expert.
+        :param model_id: The internal ID of the target model (e.g., 'Med1' or 'Expert Linux SysAdm').
+        :return: The raw text response from the expert model.
+        """
+        url = self.valves.base_url + "/api/chat/completions"
+</code></pre>
 <br>
       <li>Click on <b>Save</b></li>
       <li>Once saved, click on <b>Tools</b> again at the top</li>
