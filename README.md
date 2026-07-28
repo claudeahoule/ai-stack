@@ -62,8 +62,8 @@ nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.tot
 
   ollama run qwen3.5:2b-q4_K_M
   ```
-  - type '/bye' to exit ollama chat
-
+    - type '/bye' to exit ollama chat
+  - Now that was fun, or maybe not. But what's next to do something meaningful with this? Open WebUI helps a lot with that!
 ---
 
 </details>
