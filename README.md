@@ -265,7 +265,8 @@ podman run --rm -d --pod ai-stack --name open-webui \
 ```
 
   - From what I understand of how **Open WebUI** is using pgvector with the aforementioned options in starting open-webui podman container, pgvector is now the index for all documents loaded from this point on within **Open WebUI**.
-    - So if you had already loaded some documents into **Open WebUI**, then you'll likely need to do that again.
+    - So if you had already loaded some documents into **Open WebUI**, then you'll likely need to reload all of your documents again.
+      - I did warn you earlier about it under the **Open WebUI** installation section. But yes, the warning did come at the end of the spell. Sorry, but not sorry.
     - This is a good time to change your document embedding option with **Open WebUI**...
       - First, go to your Ollama instance, and run `ollama pull bge-m3:latest`
       - Go back to **Open WebUI**, under **Admin Panel / Settings / Documents**
