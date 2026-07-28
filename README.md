@@ -290,6 +290,15 @@ podman run --rm -d --pod ai-stack --name open-webui \
 
 </details>
 
+<details>
+  <summary>Open Terminal</summary>
+
+<br>
+
+---
+
+</details>
+
 ---
 ---
 
