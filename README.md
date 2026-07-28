@@ -691,13 +691,12 @@ podman run --rm -d --pod ai-stack --name open-terminal \
             """
             url = self.valves.base_url + "/api/chat/completions"
     ```
-
-  - Click on Save
-  - Once saved, click on 'Tools' again at the top
-  - Click on the gears icon next to 'consult_expert'
-  - Paste the 'Open WebUI' API KEY you have in your account into 'Api Key' custom valve
-  - Set 'Base Url' to 'http://localhost:8080'
-  - Click Save
+    - Click on Save
+    - Once saved, click on 'Tools' again at the top
+    - Click on the gears icon next to 'consult_expert'
+    - Paste the 'Open WebUI' API KEY you have in your account into 'Api Key' custom valve
+    - Set 'Base Url' to 'http://localhost:8080'
+    - Click Save
 
 ---
 
