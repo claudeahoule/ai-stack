@@ -643,13 +643,23 @@ podman run --rm -d --pod ai-stack --name open-terminal \
 <details>
   <summary>Tools and Functions</summary>
 
+  <blockquote>
+
   - Token Counter Display: Shows per-message and cumulative session token counts as a status notification after each response.
   - save_to_knowledge - Saves the current message or the whole chat into an Open WebUI Knowledge Base for later RAG use.
   - Local Weather - Fetches current weather and forecast.
   - openwebui_ssh - Access Open WebUI node via ssh in order to run a curated suite of commands for health status and troubleshooting.
   - ollama_ssh - Access Ollama node via ssh in order to run a curated suite of commands for health status and troubleshooting.
   - nagios - fetch and summarize Nagios service alerts.
-  - consult_expert - Consult a specialized expert Workspace/Model in Open WebUI that has access to specialized Workspace/Knowlege base material.
+
+  <details>
+    <summary>consult_expert</summary>
+
+    - Consult a specialized expert Workspace/Model in Open WebUI that has access to specialized Workspace/Knowlege base material.
+
+  </details>
+
+  </blockquote>
 
 </details>
 
