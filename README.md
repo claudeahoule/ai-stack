@@ -164,8 +164,36 @@ podman run --rm -d --pod ai-stack --name searxng \
     - **Web Search Engine** is set to **searxng**
     - Under **Searxng Query URL**, set to `http://localhost:8888/search?q=<query>`
     - Leave all other settings at defaults for now
+    - Click **Save** at the bottom of the page
 
   - By itself under Open WebUI, searxng is...okay, but not great...yet. The power of this search engine comes into fruition when you couple it with `playwright`
+
+</details>
+
+<details>
+  <summary>playwright</summary>
+
+<br>
+
+- [playwright](https://github.com/microsoft/playwright)
+  - `podman pull mcr.microsoft.com/playwright:v1.58.1-noble`
+  - Start playwright podman container...
+```
+podman run --rm -d --pod ai-stack --name playwright \
+  --security-opt label=disable \
+  --ipc=host \
+  --user pwuser \
+  --workdir /home/pwuser \
+  mcr.microsoft.com/playwright:v1.58.1-noble npx -y playwright@1.58.1 run-server --port 8002 --host 0.0.0.0
+```
+
+  - In **Open WebUI**, under **Admin Panel / Settings / Web Search**...
+    - Under **Loader** section, ensure that **Web Loader Engine** is set to `playwright`
+    - Set **Playwright WebSocket URL** to `ws://localhost:8002`
+    - Leave all other settings at defaults for now
+    - Click **Save** at the bottom of the page
+
+  - Now when you do web searches from within a chat session in Open WebUI, you'll get much more meaningful results than with just searxng alone.
 
 </details>
 
