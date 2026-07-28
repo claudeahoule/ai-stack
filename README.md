@@ -648,16 +648,16 @@ podman run --rm -d --pod ai-stack --name open-terminal \
   <details>
     <summary>consult_expert</summary>
 
-<h2>Consult a specialized expert Workspace/Model in Open WebUI that has access to specialized Workspace/Knowlege base material</h2>
+```
 
-<br>
-    <h3>In <b>Open WebUI</b>, under <b>Workspace / Tools</b></h3>
-    <ul>
-      <li>Create a <b>+ New Tool</b></li>
-      <li>Name it <code>consult_expert</code></li>
-      <li>Give it a description of <code>Consults a specialized expert model within the system</code></li>
-      <li>Copy/Paste the following code block</li>
-<pre><code>
+Consult a specialized expert Workspace/Model in Open WebUI that has access to specialized Workspace/Knowlege base material
+
+- In 'Open WebUI', under 'Workspace / Tools'
+- Create a '+ New Tool'
+- Name it 'consult_expert'
+- Give it a description of 'Consults a specialized expert model within the system'
+- Copy/Paste the following code block
+
 """
 title: Expert Consultant
 author: you
@@ -692,29 +692,32 @@ class Tools:
         :return: The raw text response from the expert model.
         """
         url = self.valves.base_url + "/api/chat/completions"
-</code></pre>
 
-<br>
-      <li>Click on <b>Save</b></li>
-      <li>Once saved, click on <b>Tools</b> again at the top</li>
-      <li>Click on the gears icon next to <code>consult_expert</code></li>
-      <li>Paste the <b>Open WebUI</b> API KEY you have in your account into <b>Api Key</b> custom valve</li>
-      <li>Set <b>Base Url</b> to <code>http://localhost:8080</code></li>
-      <li>Click <b>Save</b></li>
-    </ul>
+- Click on Save
+
+- Once saved, click on 'Tools' again at the top
+- Click on the gears icon next to 'consult_expert'
+- Paste the 'Open WebUI' API KEY you have in your account into 'Api Key' custom valve
+- Set 'Base Url' to 'http://localhost:8080'
+- Click Save
+
+```
 
 ---
-    ### Using `consult_expert` tool in custom models
-    - For a custom Virtual Assistant models, such as VAI (Virtual Assistant Intelligence), which is based on J.A.R.V.I.S., add `consult_expert` tool and save the custom model
-    - Now your Virual Assistant model doesn't need to have every Knowledge base document attached to it. Your Virtual Assistant can simply consult with another custom model that has specific Knowledge base attached to it. The other custom models can also have completely different base models (perhaps some models are better are coding than your Virtual Assistant, or is specialized in medical subjects, or better for translating, etc...).
-    - The idea here is that you build as many custom expert models, using appropriate base models for their use cases, and only attach appropriate Knowledge base content needed for that model.
-    - Using the following enhancement to your Virtual Assistant's main prompt...
-    ```
-    You are the primary interface. You have access to a suite of expert models via the consult_expert tool
-    ```
 
-    - Your Virtual Assistant will consult with other custom models that are appropriate for the use case
-    - You may need to define the list of other custom models and a brief description of what they are used for
+```
+Using `consult_expert` tool in custom models
+- For a custom Virtual Assistant models, such as VAI (Virtual Assistant Intelligence), which is based on J.A.R.V.I.S., add `consult_expert` tool and save the custom model
+- Now your Virual Assistant model doesn't need to have every Knowledge base document attached to it. Your Virtual Assistant can simply consult with another custom model that has specific Knowledge base attached to it. The other custom models can also have completely different base models (perhaps some models are better are coding than your Virtual Assistant, or is specialized in medical subjects, or better for translating, etc...).
+- The idea here is that you build as many custom expert models, using appropriate base models for their use cases, and only attach appropriate Knowledge base content needed for that model.
+- Using the following enhancement to your Virtual Assistant's main prompt...
+
+    You are the primary interface. You have access to a suite of expert models via the consult_expert tool
+
+  - Your Virtual Assistant will consult with other custom models that are appropriate for the use case
+  - You may need to define the list of other custom models and a brief description of what they are used for
+
+```
 
   </details>
 
