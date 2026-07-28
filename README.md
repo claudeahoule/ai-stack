@@ -37,6 +37,7 @@ timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], m
 nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.total,memory.free,memory.used --format=csv -l 5
 ```
   - Sorry, I don't have any AMD Radeon GPUs to test with.
+
 ---
 
 </details>
@@ -82,6 +83,8 @@ nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.tot
 ```
 podman pod create --name ai-stack -p 3000:8080
 ```
+
+---
 
 </details>
 
@@ -200,6 +203,8 @@ podman run --rm -d --pod ai-stack --name searxng \
 
   - By itself under Open WebUI, searxng is...okay, but not great...yet. The power of this search engine comes into fruition when you couple it with `playwright`
 
+---
+
 </details>
 
 <details>
@@ -226,6 +231,8 @@ podman run --rm -d --pod ai-stack --name playwright \
     - Click **Save** at the bottom of the page
 
   - Now when you do web searches from within a chat session in Open WebUI, you'll get much more meaningful results than with just searxng alone.
+
+---
 
 </details>
 
@@ -267,6 +274,8 @@ podman run --rm -d --pod ai-stack --name open-webui \
       - Set the **Embedding Model** to `bge-m3:latest`
       - Click **Save** at the bottom of the page
 
+---
+
 </details>
 
 <details>
@@ -275,6 +284,8 @@ podman run --rm -d --pod ai-stack --name open-webui \
 <br>
 
 - docling-serve
+
+---
 
 </details>
 
