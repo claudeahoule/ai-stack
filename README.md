@@ -667,6 +667,16 @@ podman run --rm -d --pod ai-stack --name open-terminal \
 </details>
 
 <details>
+  <summary>FAQ</summary>
+
+<blockquote>
+WIP - easier to do once someone starts asking me questions about it
+
+</blockquote>
+
+</details>
+
+<details>
   <summary>Troubleshooting</summary>
 
 <blockquote>
