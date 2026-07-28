@@ -1,5 +1,10 @@
 # ai-stack
 
+<p>
+Want to try building your own AI stack to run in a homelab?
+Well, this might help.
+</p>
+
 ## Components
 - Ollama
 - Open WebUI
