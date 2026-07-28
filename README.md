@@ -369,29 +369,13 @@ podman run --rm -d --pod ai-stack --name open-terminal \
 ## Miscellaneous schtuff
 
 <details>
-  <summary>Other components in my AI stack that I still need to document are...</summary>
+  <summary>Custom Model configurations</summary>
 
 <br>
 
-- pgvector
-  - just to replace the default chromadb that Open WebUI comes configured with
-  - also, I only use pgvector for document indexing, not for Open WebUI configuration...at least not yet
-- docling-serve
-  - **Content Extraction Engine** in Open WebUI
-  - I've run both GPU and CPU only modes for docling-serve container
-  - Unfortunately I don't have any side-by-side test results, but I can say from what I've observed anecdotaly, GPU runs much better when loading docs that need docling for processing (like PDFs with images, maps, and charts that are not real text)
-- searxng
-  - as the name implies, this allows you to search the web more effectively from a chat session within Open WebUI
-  - but the default config throws a lot of warnings and errors, so I tweaked mine
-  - I also restricted my searxng config to NOT use Google for searches. Main reasoning is that there are a lot of errors and warnings generated as Google detects bots, of course.
-  - Also, if I want to search Google, then I'll search Google !
-  - Lastly, I purposely restricted searxng to NOT search Reddit
-- playwright
-  - Works nicely with searxng once web searches have hits to read. Playwright is good at reading web content and getting around bot restrictions
-- open-terminal
-  - playground to run commands and test things out while in a chat session
-
----
+| Custom Model Name | Base Model | Description | Function Calling | Temperature | max_tokens | top_k | top_p | repeat_penalty | num_ctx | keep_alive |
+|-------------------|------------|-------------|------------------|-------------|------------|-------|-------|----------------|---------|------------|
+| VAI | gemma4:12b-it-q4_K_M | Virutal Assistant Intelligence | Native | 0.65 | 8192 | 40 | 0.9 | 1.1 | 32768 | 20m |
 
 </details>
 
