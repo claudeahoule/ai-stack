@@ -97,8 +97,20 @@ podman pod create --name ai-stack -p 3000:8080
   
   podman run --rm -d --pod ai-stack --name open-webui \
     -v open-webui:/app/backend/data:Z \
+    -e USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
     ghcr.io/open-webui/open-webui:main  
   ```
+
+  - The `-e USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \` line is for later, once you have `searxng` and `playwright` up and running, but I'm getting ahead of myself
+  - If your Ollama instance runs on a different system than where you have installed/setup Open WebUI, then you'll need to add connection(s)
+    - Under ** Admin Panel / Settings / Connections **
+    - Ensure that **Ollama API** is enabled
+    - Under **Manage Ollama API Connections**, click on the `+` (plus) sign to create a new connection definition
+    - **Connection Type** should be `External`
+    - **URL** should be set to where your Ollama instance is running (eg. IP 10.0.0.123) then `http://10.0.0.123:11434`
+    - Click the recycle button next to URL definition to do a connectivity test.
+    - If successful, Open WebUI now has access to all of the models you have pulled into Ollama thus far. 
+    - If not, then Google. Firewall, routes, wrong IPs, are all things to chase down and figure out why you can't connect.
 
 ---
 
