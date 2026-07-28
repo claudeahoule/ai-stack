@@ -724,12 +724,12 @@ Using `consult_expert` tool in custom models
   <details>
     <summary>WIP</summary>
 
-    - Token Counter Display: Shows per-message and cumulative session token counts as a status notification after each response.
-    - save_to_knowledge - Saves the current message or the whole chat into an Open WebUI Knowledge Base for later RAG use.
-    - Local Weather - Fetches current weather and forecast.
-    - openwebui_ssh - Access Open WebUI node via ssh in order to run a curated suite of commands for health status and troubleshooting.
-    - ollama_ssh - Access Ollama node via ssh in order to run a curated suite of commands for health status and troubleshooting.
-    - nagios - fetch and summarize Nagios service alerts.
+  - Token Counter Display: Shows per-message and cumulative session token counts as a status notification after each response.
+  - save_to_knowledge - Saves the current message or the whole chat into an Open WebUI Knowledge Base for later RAG use.
+  - Local Weather - Fetches current weather and forecast.
+  - openwebui_ssh - Access Open WebUI node via ssh in order to run a curated suite of commands for health status and troubleshooting.
+  - ollama_ssh - Access Ollama node via ssh in order to run a curated suite of commands for health status and troubleshooting.
+  - nagios - fetch and summarize Nagios service alerts.
 
   </details>
 
