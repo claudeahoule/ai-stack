@@ -689,7 +689,7 @@ class Tools:
         :return: The raw text response from the expert model.
         """
         url = self.valves.base_url + "/api/chat/completions"
-````
+```
 
   - Click on Save
   - Once saved, click on 'Tools' again at the top
