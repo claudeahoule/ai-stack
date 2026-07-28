@@ -274,7 +274,7 @@ podman run --rm -d --pod ai-stack --name open-webui \
       - Configur the **URL** to point to your Ollama instance (eg. `http://10.0.0.123:11434`)
       - Set the **Embedding Model** to `bge-m3:latest`
       - Click **Save** at the bottom of the page
-      - You may have to do the **Reset Vector Storage/Knowledge** and **Reindex Knowledge Base Vectors** at the bottom of this page. Yes, it's under the **Danger Zone** section. And it's dangerous if you want to keep anything. But at this point, following this doc thus far will put you into a scenario where it really doesn't matter. Just nuking any existing docs and reloading them. Just pull off the bandaid. Rip it off. Go ahead.
+      - You may have to do the **Reset Vector Storage/Knowledge** and **Reindex Knowledge Base Vectors** at the bottom of this page. Yes, it's under the **Danger Zone** section. And it's dangerous if you want to keep anything. But at this point, following this doc thus far will put you into a scenario where it really doesn't matter. We're nuking existing docs and reloading them into **Open WebUI** at this point. Just pull off the bandaid. Rip it off. Go ahead.
 
 ---
 
