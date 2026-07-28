@@ -36,7 +36,7 @@ timestamp, name, temperature.gpu, utilization.gpu [%], utilization.memory [%], m
 ```
 nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.total,memory.free,memory.used --format=csv -l 5
 ```
-
+  - Sorry, I don't have any AMD Radeon GPUs to test with.
 ---
 
 </details>
