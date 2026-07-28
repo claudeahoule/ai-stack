@@ -648,16 +648,13 @@ podman run --rm -d --pod ai-stack --name open-terminal \
   <details>
     <summary>consult_expert</summary>
 
-```
-
-Consult a specialized expert Workspace/Model in Open WebUI that has access to specialized Workspace/Knowlege base material
-
-- In 'Open WebUI', under 'Workspace / Tools'
-- Create a '+ New Tool'
-- Name it 'consult_expert'
-- Give it a description of 'Consults a specialized expert model within the system'
-- Copy/Paste the following code block
-
+  - Consult a specialized expert Workspace/Model in Open WebUI that has access to specialized Workspace/Knowlege base material
+    - In 'Open WebUI', under 'Workspace / Tools'
+    - Create a '+ New Tool'
+    - Name it 'consult_expert'
+    - Give it a description of 'Consults a specialized expert model within the system'
+    - Copy/Paste the following code block
+    ```
 """
 title: Expert Consultant
 author: you
@@ -692,16 +689,14 @@ class Tools:
         :return: The raw text response from the expert model.
         """
         url = self.valves.base_url + "/api/chat/completions"
+````
 
-- Click on Save
-
-- Once saved, click on 'Tools' again at the top
-- Click on the gears icon next to 'consult_expert'
-- Paste the 'Open WebUI' API KEY you have in your account into 'Api Key' custom valve
-- Set 'Base Url' to 'http://localhost:8080'
-- Click Save
-
-```
+  - Click on Save
+  - Once saved, click on 'Tools' again at the top
+  - Click on the gears icon next to 'consult_expert'
+  - Paste the 'Open WebUI' API KEY you have in your account into 'Api Key' custom valve
+  - Set 'Base Url' to 'http://localhost:8080'
+  - Click Save
 
 ---
 
