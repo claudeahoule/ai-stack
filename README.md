@@ -657,7 +657,7 @@ podman run --rm -d --pod ai-stack --name open-terminal \
       <li>Name it <code>consult_expert</code></li>
       <li>Give it a description of <code>Consults a specialized expert model within the system</code></li>
       <li>Copy/Paste the following code block</li>
-      <pre><code>
+<pre><code>
 """
 title: Expert Consultant
 author: you
@@ -693,6 +693,7 @@ class Tools:
         """
         url = self.valves.base_url + "/api/chat/completions"
 </code></pre>
+
 <br>
       <li>Click on <b>Save</b></li>
       <li>Once saved, click on <b>Tools</b> again at the top</li>
