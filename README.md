@@ -648,14 +648,14 @@ podman run --rm -d --pod ai-stack --name open-terminal \
   <details>
     <summary>consult_expert</summary>
 
-    Consult a specialized expert Workspace/Model in Open WebUI that has access to specialized Workspace/Knowlege base material.
-
-    - In **Open WebUI**, under **Workspace / Tools**
-      - Create a **+ New Tool**
-      - Name it `consult_expert`
-      - Give it a description of `Consults a specialized expert model within the system`
-      - Copy/Paste the following code block
-      ```
+    <b>Consult a specialized expert Workspace/Model in Open WebUI that has access to specialized Workspace/Knowlege base material.</b>
+<br>
+    <ul>In **Open WebUI**, under **Workspace / Tools**
+      <li>Create a <b>+ New Tool</b></li>
+      <li>Name it <code>consult_expert</code></li>
+      <li>Give it a description of <code>Consults a specialized expert model within the system</code></li>
+      <li>Copy/Paste the following code block</li>
+      <pre><code>
       """
       title: Expert Consultant
       author: you
@@ -691,14 +691,15 @@ podman run --rm -d --pod ai-stack --name open-terminal \
               :return: The raw text response from the expert model.
               """
               url = self.valves.base_url + "/api/chat/completions"
-      ```
-
-      - Click on **Save**
-      - Once saved, click on **Tools** again at the top
-      - Click on the gears icon next to `consult_expert`
-      - Paste the **Open WebUI** API KEY you have in your account into **Api Key** custom valve
-      - Set **Base Url** to `http://localhost:8080`
-      - Click **Save**
+      </code></pre>
+<br>
+      <li>Click on <b>Save</b></li>
+      <li>Once saved, click on <b>Tools</b> again at the top</li>
+      <li>Click on the gears icon next to <code>consult_expert</code></li>
+      <li>Paste the <b>Open WebUI</b> API KEY you have in your account into <b>Api Key</b> custom valve</li>
+      <li>Set <b>Base Url</b> to <code>http://localhost:8080</code></li>
+      <li>Click <b>Save</b></li>
+    </ul>
 
 ---
     ### Using `consult_expert` tool in custom models
