@@ -714,8 +714,8 @@ Using `consult_expert` tool in custom models
 
     You are the primary interface. You have access to a suite of expert models via the consult_expert tool
 
-  - Your Virtual Assistant will consult with other custom models that are appropriate for the use case
-  - You may need to define the list of other custom models and a brief description of what they are used for
+- Your Virtual Assistant will consult with other custom models that are appropriate for the use case
+- You may need to define the list of other custom models and a brief description of what they are used for
 
 ```
 
