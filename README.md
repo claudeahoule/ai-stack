@@ -679,18 +679,28 @@ nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.tot
 ```
 
 ### Monitor podman containers on Open WebUI
-- `podman stats -a -i 5`
+```
+podman stats -a -i 5
+```
 
 ### Check for Open WebUI container errors in logs
-- `podman logs open-webui | tail -5000 | grep -i error`
+```
+podman logs open-webui | tail -5000 | grep -i error
+```
 
 ### Monitor Ollama model usage
-- `ollama ps`
+```
+ollama ps
+```
 
 ### Monitor remote Ollama model usage
-- `OLLAMA_HOST=10.0.0.234:11434 ollama ps`
+```
+OLLAMA_HOST=10.0.0.234:11434 ollama ps
+```
 
 ### Check for Ollama issues
-- `journalctl -u ollama --since "15 minutes ago" --no-pager`
+```
+journalctl -u ollama --since "15 minutes ago" --no-pager
+```
 
 </details>
