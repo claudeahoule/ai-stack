@@ -665,3 +665,27 @@ podman run --rm -d --pod ai-stack --name open-terminal \
     - Once you have Open WebUI running in a VM, just configure **Admin Panel / Settings / Connections** to point to your PC/Laptop internal virtual IP (you may need to open up that firewall as well for port 11434...not sure).
 
 </details>
+
+<details>
+  <summary>Troubleshooting</summary>
+
+### Monitoring NVIDIA GPU usage
+- `nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.total,memory.free,memory.used --format=csv` OR
+- `nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.total,memory.free,memory.used --format=csv -l 5`
+
+### Monitor podman containers on Open WebUI
+- `podman stats -a -i 5`
+
+### Check for Open WebUI container errors in logs
+- `podman logs open-webui | tail -5000 | grep -i error`
+
+### Monitor Ollama model usage
+- `ollama ps`
+
+### Monitor remote Ollama model usage
+- `OLLAMA_HOST=10.0.0.234:11434 ollama ps`
+
+### Check for Ollama issues
+- `journalctl -u ollama --since "15 minutes ago" --no-pager`
+
+</details>
