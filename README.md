@@ -658,7 +658,7 @@ podman run --rm -d --pod ai-stack --name open-terminal \
 
   - If you're a Windows user, you could...
     - Install Ollama directly onto your PC/laptop. Hopefully you have a GPU there. It'll help.
-      - Just make sure to open up port 11434 to your home network on your Windows PC/laptop
+      - Just make sure to open up port 11434 on your Windows PC/Laptop
     - Install Oracle Virtualbox on your PC as well, and then download and build a Linux VM
       - I don't know how well the installation docs I provided would work on a Ubuntu image, but I know they'll work on Fedora 43 and 44 Workstation or Server
     - Once you have Open WebUI running in a VM, just configure **Admin Panel / Settings / Connections** to point to your PC/Laptop internal virtual IP (you may need to open up that firewall as well for port 11434...not sure).
