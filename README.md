@@ -165,6 +165,8 @@ podman run --rm -d --pod ai-stack --name searxng \
     - Under **Searxng Query URL**, set to `http://localhost:8888/search?q=<query>`
     - Leave all other settings at defaults for now
 
+  - By itself under Open WebUI, searxng is...okay, but not great...yet. The power of this search engine comes into fruition when you couple it with `playwright`
+
 </details>
 
 ---
