@@ -700,19 +700,16 @@ podman run --rm -d --pod ai-stack --name open-terminal \
 
 ---
 
-```
-Using `consult_expert` tool in custom models
-- For a custom Virtual Assistant models, such as VAI (Virtual Assistant Intelligence), which is based on J.A.R.V.I.S., add `consult_expert` tool and save the custom model
-- Now your Virual Assistant model doesn't need to have every Knowledge base document attached to it. Your Virtual Assistant can simply consult with another custom model that has specific Knowledge base attached to it. The other custom models can also have completely different base models (perhaps some models are better are coding than your Virtual Assistant, or is specialized in medical subjects, or better for translating, etc...).
-- The idea here is that you build as many custom expert models, using appropriate base models for their use cases, and only attach appropriate Knowledge base content needed for that model.
-- Using the following enhancement to your Virtual Assistant's main prompt...
-
+  - Using `consult_expert` tool in custom models
+    - For a custom Virtual Assistant models, such as VAI (Virtual Assistant Intelligence), which is based on J.A.R.V.I.S., add `consult_expert` tool and save the custom model
+    - Now your Virual Assistant model doesn't need to have every Knowledge base document attached to it. Your Virtual Assistant can simply consult with another custom model that has specific Knowledge base attached to it. The other custom models can also have completely different base models (perhaps some models are better are coding than your Virtual Assistant, or is specialized in medical subjects, or better for translating, etc...).
+    - The idea here is that you build as many custom expert models, using appropriate base models for their use cases, and only attach appropriate Knowledge base content needed for that model.
+    - Using the following enhancement to your Virtual Assistant's main prompt...
+    ```
     You are the primary interface. You have access to a suite of expert models via the consult_expert tool
-
-- Your Virtual Assistant will consult with other custom models that are appropriate for the use case
-- You may need to define the list of other custom models and a brief description of what they are used for
-
-```
+    ```
+    - Your Virtual Assistant will consult with other custom models that are appropriate for the use case
+    - You may need to define the list of other custom models and a brief description of what they are used for
 
   </details>
 
