@@ -274,6 +274,7 @@ podman run --rm -d --pod ai-stack --name open-webui \
       - Configur the **URL** to point to your Ollama instance (eg. `http://10.0.0.123:11434`)
       - Set the **Embedding Model** to `bge-m3:latest`
       - Click **Save** at the bottom of the page
+      - You may have to do the **Reset Vector Storage/Knowledge** and **Reindex Knowledge Base Vectors** at the bottom of this page. Yes, it's under the **Danger Zone** section. And it's dangerous if you want to keep anything. But at this point, following this doc thus far will put you into a scenario where it really doesn't matter. Just nuking any existing docs and reloading them. Just pull off the bandaid. Rip it off. Go ahead.
 
 ---
 
@@ -284,7 +285,46 @@ podman run --rm -d --pod ai-stack --name open-webui \
 
 <br>
 
-- docling-serve
+- [docling-serve](https://github.com/docling-project/docling-serve)
+  - Here you have a choice of running a CPU only or GPU enabled version of docling-serve
+    - If you intend to run docling-serve on system with an NVIDIA GPU, then...
+      - `podman pull quay.io/docling-project/docling-serve-cu124:latest`
+    - If you intend to run docling-serve on system with no GPU and rely solely on CPU, then...
+      - `podman pull quay.io/docling-project/docling-serve-cpu:latest`
+  - In my homelab, I chose to run docling-serve on a GPU enabled system, which is not the same as where my **Open WebUI** instance runs. Hence, this is how I start up my docling-serve-cu124 container...
+```
+podman run --rm -d --name docling-serve \
+  -p 5001:5001 \
+  -e DOCLING_NUM_THREADS=8 \
+  -e UVICORN_WORKERS=1 \
+  -e DOCLING_SERVE_MAX_SYNC_WAIT=900 \
+  quay.io/docling-project/docling-serve-cu124
+```
+
+  - Of course, I had to open fw rules for port 5001 on that system...
+    - `firewall-cmd --add-port=5001/tcp ; firewall-cmd --add-port=5001/tcp --permanent`
+
+  - In **Open WebUI**, under **Admin Panel / Settings / Documents**
+  - Set **Content Extraction Engine** to `Docling`
+  - Set the **URL** to the IP address where docling-serve container is running (eg. 10.0.0.123) then `http://10.0.0.123:5001`
+  - Under **Parameters**, at the time of writing this, I have the following defined...
+```
+{
+  "do_ocr": true,
+  "force_ocr": true,
+  "ocr_engine": "tesseract",
+  "pdf_backend": "dlparse_v4",
+  "table_mode": "accurate",
+  "ocr_options": {
+    "batch_size": 10
+  }
+}
+```
+
+  - Set **Chunk Size** to 1500
+  - Set **Chunk Overlap** to 200
+  - Both **Chunk Size** and **Chunk Overlap** are subject to your use cases, so you may want to test and tweak to what works best for you
+  - DON'T FORGET TO CLICK **Save** at the bottom of the page.
 
 ---
 
@@ -294,6 +334,8 @@ podman run --rm -d --pod ai-stack --name open-webui \
   <summary>Open Terminal</summary>
 
 <br>
+
+- Open Terminal
 
 ---
 
