@@ -8,6 +8,7 @@ Well, this might help.
 ## Components
 - Ollama
 - Open WebUI
+- Open Terminal
 - pgvector
 - searxng
 - playwright
