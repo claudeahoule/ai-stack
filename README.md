@@ -336,9 +336,10 @@ podman run --rm -d --name docling-serve \
 <br>
 
 - [open-terminal](https://github.com/open-webui/open-terminal)
-  - Get the API KEY for Open WebUI at...
-    - WIP
+  - [Open WebUI documenation for Open Terminal](https://docs.openwebui.com/features/open-terminal/setup/installation/)
   - `podman pull ghcr.io/open-webui/open-terminal`
+  - chose a custom secret key to use with **Open Terminal**
+    - **Open WebUI** will need this secret key in order to be able to communicate with **Open Terminal**
   - Start open-terminal in a podman container...
 ```
 podman run --rm -d --pod ai-stack --name open-terminal \
@@ -346,6 +347,13 @@ podman run --rm -d --pod ai-stack --name open-terminal \
   -e OPEN_TERMINAL_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
   ghcr.io/open-webui/open-terminal
 ```
+
+  - In **Open WebUI**, under **Admin Panel / Settings / Integrations**
+  - Set **Open-Terminal (localhost)** to enabled
+  - Click the configuration gear icon next to it
+  - Set the **URL** to `http://localhost:8000`
+  - Set **Auth** to `Bearer` and paste the secret-key for **Open Terminal**
+  - Click **Save**
 
 ---
 
