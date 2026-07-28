@@ -355,6 +355,10 @@ podman run --rm -d --pod ai-stack --name open-terminal \
   - Set **Auth** to `Bearer` and paste the secret-key for **Open Terminal**
   - Click **Save**
 
+- Using **Open Terminal**
+  - You can click on the small cloud icon near the bottom right of a chat session that has a model that supports tools
+  - Or, you can enable it under **Workspace/Model** for a given custom model you create. It's near the bottom of the page, under **Terminal**. It'll likely be set to `None`, but there's a pull-down menu buttom to the right of that. Choose `Open Terminal (localhost)`
+  - Don't forget to click **Save & Update**
 ---
 
 </details>
