@@ -118,6 +118,7 @@ podman pod create --name ai-stack -p 3000:8080
       - The model should show up automagically in the pull-down list at the top left of the chat session itself
     - Start chatting with your AI stack
     - It'll be limited on what it can do for you, but it's a start. The good stuff comes later as you add on more tools and capabilities.
+    - If you start playing with **Worspace/Knowledge** bases, just keep in mind that later in this article the underpinning of document storage and retrieval changes significantly enough that if you have any docs stored in **Open WebUI**, they'll get nuked. So, fair warning.
 
 ---
 
