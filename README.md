@@ -234,7 +234,28 @@ podman run --rm -d --pod ai-stack --name playwright \
 
 <br>
 
-- pgvector
+- [pgvector](https://github.com/pgvector/pgvector)
+  - `podman pull pgvector/pgvector:pg16`
+  - `mkdir $HOME/postgres_data`
+  - Start pgvector podman container...
+```
+podman run --rm -d --pod ai-stack --name pgvector \
+  -v $HOME/postgres_data:/var/lib/postgresql/data:Z \
+  -e POSTGRES_DB=ragdb \
+  -e POSTGRES_PASSWORD=XXXXXXXX \
+  pgvector/pgvector:pg16
+```
+
+  - Your `podman run... open-webui` will need to be tweaked a little...
+```
+podman run --rm -d --pod ai-stack --name open-webui \
+  -v open-webui:/app/backend/data:Z \
+  -e VECTOR_DB="pgvector" \
+  -e PGVECTOR_DB_URL="postgresql://postgresql:XXXXXXXX@localhost:5432/ragdb" \
+  -e DATABASE_URL_PGVECTOR="postgresql://postgres:XXXXXXXX@localhost:5432/ragdb" \
+  -e USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
+  ghcr.io/open-webui/open-webui:main
+```
 
 </details>
 
