@@ -1,7 +1,7 @@
 # ai-stack
 
 <p>
-Want to try building your own AI stack to run in a homelab?
+Want to try building your own AI stack to run in a homelab?<br>
 Well, this might help.
 </p>
 
