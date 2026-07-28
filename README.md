@@ -670,8 +670,13 @@ podman run --rm -d --pod ai-stack --name open-terminal \
   <summary>Troubleshooting</summary>
 
 ### Monitoring NVIDIA GPU usage
-- `nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.total,memory.free,memory.used --format=csv` OR
-- `nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.total,memory.free,memory.used --format=csv -l 5`
+```
+nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.total,memory.free,memory.used --format=csv
+
+# OR
+
+nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.total,memory.free,memory.used --format=csv -l 5
+```
 
 ### Monitor podman containers on Open WebUI
 - `podman stats -a -i 5`
