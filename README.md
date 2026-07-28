@@ -63,6 +63,18 @@ nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.tot
 </details>
 
 <details>
+  <summary>Podman AI Stack pod</summary>
+
+<br>
+
+- Begin by creating a pod just for your AI stack within podman...
+```
+podman pod create --name ai-stack -p 3000:8080
+```
+
+</details>
+
+<details>
   <summary>Open WebUI</summary>
 
 <br>
@@ -72,8 +84,9 @@ nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.tot
   ```
   podman pull ghcr.io/open-webui/open-webui:main
   
-  podman run --rm -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main
-  
+  podman run --rm -d --pod ai-stack --name open-webui \
+    -v open-webui:/app/backend/data:Z \
+    ghcr.io/open-webui/open-webui:main  
   ```
 
 ---
@@ -110,7 +123,7 @@ nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.tot
 ```
   - Start mcpo podman container...
 ```
-podman run --rm -d --name mcpo \
+podman run --rm -d --pod ai-stack --name mcpo \
   -v $HOME/mcpo/config:/app/config:Z \
   -v $HOME/mcpo/filesystem:/mnt/filesystem:Z \
   ghcr.io/open-webui/mcpo:latest \
