@@ -57,6 +57,23 @@ nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.tot
   firewall-cmd --add-port=11434/tcp
   firewall-cmd --add-port=11434/tcp --permanent
   ```
+  - If you need to upate any configuration in the ollama.service unit file, first stop ollama.service...
+  ```
+  systemctl stop ollama
+  ```
+  - If you need ollama.service to allow external host access, edit the /etc/systemd/system/ollama.service file and append to the `[Service]` section
+  ```
+  Environment="OLLAMA_HOST=0.0.0.0"
+  ```
+  - If you'd like to store the ollama models in a specific directory/path/filesystem, then append to the `[Service]` section...
+  ```
+  Environment="OLLAMA_MODELS=/ollama/models"
+  ```
+  - Once you've updated the ollama.service unit file, run...
+  ```
+  systemctl daemon-reload
+  systemctl start ollama
+  ```
   - If you want to have a little fun chatting with Ollama before you dive into Open WebUI, you can simply do this...
   ```
   ollama pull qwen3.5:2b-q4_K_M
