@@ -305,17 +305,19 @@ podman run --rm -d --pod ai-stack --name open-webui \
 - [docling-serve](https://github.com/docling-project/docling-serve)
   - Here you have a choice of running a CPU only or GPU enabled version of docling-serve
     - If you intend to run docling-serve on system with an NVIDIA GPU, then...
-      - `podman pull quay.io/docling-project/docling-serve-cu124:latest`
+      - `podman pull quay.io/docling-project/docling-serve-cu128:latest`
     - If you intend to run docling-serve on system with no GPU and rely solely on CPU, then...
       - `podman pull quay.io/docling-project/docling-serve-cpu:latest`
   - In my homelab, I chose to run docling-serve on a GPU enabled system, which is not the same as where my **Open WebUI** instance runs. Hence, this is how I start up my docling-serve-cu124 container...
 ```
 podman run --rm -d --name docling-serve \
   -p 5001:5001 \
+  --device nvidia.com/gpu=all \
+  -e DOCLING_DEVICE=cuda \
   -e DOCLING_NUM_THREADS=8 \
   -e UVICORN_WORKERS=1 \
   -e DOCLING_SERVE_MAX_SYNC_WAIT=900 \
-  quay.io/docling-project/docling-serve-cu124
+  quay.io/docling-project/docling-serve-cu128
 ```
 
   - Of course, I had to open fw rules for port 5001 on that system...
@@ -328,13 +330,17 @@ podman run --rm -d --name docling-serve \
 ```
 {
   "do_ocr": true,
-  "force_ocr": true,
+  "force_ocr": false,
   "ocr_engine": "tesseract",
+  "ocr_lang": [
+    "eng"
+  ],
   "pdf_backend": "dlparse_v4",
   "table_mode": "accurate",
-  "ocr_options": {
-    "batch_size": 10
-  }
+  "do_table_structure": true,
+  "table_cell_matching": true,
+  "document_timeout": 900,
+  "abort_on_error": false
 }
 ```
 
