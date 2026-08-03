@@ -290,6 +290,7 @@ podman run --rm -d --pod ai-stack --name open-webui \
       - Set the **Embedding Model Engine** to Ollama
       - Configur the **URL** to point to your Ollama instance (eg. `http://10.0.0.123:11434`)
       - Set the **Embedding Model** to `bge-m3:latest`
+      - Set the **Embedding Batch Size** to 16 for an GPU with 8GB of VRAM loaded with the aforementioned embedding model
       - Click **Save** at the bottom of the page
       - You may have to do the **Reset Vector Storage/Knowledge** and **Reindex Knowledge Base Vectors** at the bottom of this page. Yes, it's under the **Danger Zone** section. And it's dangerous if you want to keep anything. But at this point, following this doc thus far will put you into a scenario where it really doesn't matter. We're nuking existing docs and reloading them into **Open WebUI** at this point. Just pull off the bandaid. Rip it off. Go ahead.
 
@@ -679,40 +680,69 @@ podman run --rm -d --pod ai-stack --name open-terminal \
     - Give it a description of 'Consults a specialized expert model within the system'
     - Copy/Paste the following code block
     ```
-    """
-    title: Expert Consultant
-    author: you
-    version: 1.0
-    description: Consults a specialized expert model within the system.
-    requirements: requests
-    """
-    
-    import requests
-    from pydantic import BaseModel, Field
-    
-    class Tools:
-        class Valves(BaseModel):
-            api_key: str = Field(
-                default="",
-                description="Open WebUI API key (Settings > Account > API Keys) used to authenticate internal calls.",
-            )
-            base_url: str = Field(
-                default="http://localhost:3000",
-                description="Base URL of your Open WebUI instance.",
-            )
-    
-        def __init__(self):
-            self.valves = self.Valves()
-    
-        def consult_expert(self, query: str, model_id: str) -> str:
-            """
-            Consults a specialized expert model within the system to retrieve
-            specialized information before synthesizing a response for the user.
-            :param query: The specific question or data request to be sent to the expert.
-            :param model_id: The internal ID of the target model (e.g., 'Med1' or 'Expert Linux SysAdm').
-            :return: The raw text response from the expert model.
-            """
-            url = self.valves.base_url + "/api/chat/completions"
+"""
+title: Expert Consultant
+author: you
+version: 1.1
+description: Consults a specialized expert model within the system.
+requirements: httpx
+"""
+
+import httpx
+from pydantic import BaseModel, Field
+
+
+class Tools:
+    class Valves(BaseModel):
+        api_key: str = Field(
+            default="",
+            description="Open WebUI API key (Settings > Account > API Keys) used to authenticate internal calls.",
+        )
+        base_url: str = Field(
+            default="http://localhost:3000",
+            description="Base URL of your Open WebUI instance.",
+        )
+        timeout_seconds: int = Field(
+            default=60,
+            description="Max time to wait for the expert model to respond before giving up.",
+        )
+
+    def __init__(self):
+        self.valves = self.Valves()
+
+    async def consult_expert(self, query: str, model_id: str) -> str:
+        """
+        Consults a specialized expert model within the system to retrieve
+        specialized information before synthesizing a response for the user.
+        :param query: The specific question or data request to be sent to the expert.
+        :param model_id: The internal ID of the target model (e.g., 'Med1' or 'Expert Linux SysAdm').
+        :return: The raw text response from the expert model.
+        """
+        url = self.valves.base_url + "/api/chat/completions"
+        headers = {
+            "Authorization": f"Bearer {self.valves.api_key}",
+            "Content-Type": "application/json",
+        }
+        payload = {
+            "model": model_id,
+            "messages": [{"role": "user", "content": query}],
+        }
+
+        try:
+            async with httpx.AsyncClient(timeout=self.valves.timeout_seconds) as client:
+                response = await client.post(url, headers=headers, json=payload)
+                response.raise_for_status()
+                data = response.json()
+                return data["choices"][0]["message"]["content"]
+        except httpx.TimeoutException:
+            return f"Error: expert model '{model_id}' did not respond within {self.valves.timeout_seconds} seconds."
+        except httpx.HTTPStatusError as e:
+            return f"Error: expert model returned status {e.response.status_code}: {e.response.text}"
+        except httpx.RequestError as e:
+            return f"Error contacting expert model: {e}"
+        except (KeyError, IndexError):
+            return f"Unexpected response format from expert model: {response.text}"
+
     ```
     - Click on Save
     - Once saved, click on 'Tools' again at the top
