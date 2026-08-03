@@ -230,7 +230,8 @@ podman run --rm -d --pod ai-stack --name searxng \
 <br>
 
 - [playwright](https://github.com/microsoft/playwright)
-  - `podman pull mcr.microsoft.com/playwright:v1.58.1-noble`
+  - Check **Open WebUI**'s requirement for the version of playwright under `https://raw.githubusercontent.com/open-webui/open-webui/refs/heads/main/backend/requirements.txt`
+  - `podman pull mcr.microsoft.com/playwright:v1.60.0`
   - Start playwright podman container...
 ```
 podman run --rm -d --pod ai-stack --name playwright \
@@ -238,7 +239,7 @@ podman run --rm -d --pod ai-stack --name playwright \
   --ipc=host \
   --user pwuser \
   --workdir /home/pwuser \
-  mcr.microsoft.com/playwright:v1.58.1-noble npx -y playwright@1.58.1 run-server --port 8002 --host 0.0.0.0
+  mcr.microsoft.com/playwright:v1.60.0 npx -y playwright@1.60.0 run-server --port 8002 --host 0.0.0.0
 ```
 
   - In **Open WebUI**, under **Admin Panel / Settings / Web Search**...
