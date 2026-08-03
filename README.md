@@ -231,6 +231,11 @@ podman run --rm -d --pod ai-stack --name searxng \
 
 - [playwright](https://github.com/microsoft/playwright)
   - Check **Open WebUI**'s requirement for the version of playwright under `https://raw.githubusercontent.com/open-webui/open-webui/refs/heads/main/backend/requirements.txt`
+    - eg.
+    ```
+    curl -sk https://raw.githubusercontent.com/open-webui/open-webui/refs/heads/main/backend/requirements.txt | \
+    awk '/^playwright/{v=$1;n=split(v,a,"=");print a[n]}'
+    ```
   - `podman pull mcr.microsoft.com/playwright:v1.60.0`
   - Start playwright podman container...
 ```
