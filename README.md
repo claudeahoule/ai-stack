@@ -11,6 +11,7 @@ Well, this might help.
 - Open Terminal
 - pgvector
 - searxng
+- yacy
 - playwright
 - mcpo
 - docling-serve
@@ -121,7 +122,7 @@ podman pod create --name ai-stack -p 3000:8080
     ghcr.io/open-webui/open-webui:main  
   ```
 
-  - The `-e USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \` line is for later, once you have `searxng` and `playwright` up and running, but I'm getting ahead of myself
+  - The `-e USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \` line is for later, once you have `searxng/yacy` and `playwright` up and running, but I'm getting ahead of myself
   - If your Ollama instance runs on a different system than where you have installed/setup Open WebUI, then you'll need to add connection(s)
     - Under **Admin Panel / Settings / Connections**
     - Ensure that **Ollama API** is enabled
@@ -219,6 +220,32 @@ podman run --rm -d --pod ai-stack --name searxng \
     - Click **Save** at the bottom of the page
 
   - By itself under Open WebUI, searxng is...okay, but not great...yet. The power of this search engine comes into fruition when you couple it with `playwright`
+
+---
+
+</details>
+
+<details>
+  <summary>yacy</summary>
+
+<br>
+
+- [yacy](https://github.com/yacy)
+  - `podman pull docker.io/yacy/yacy_search_server:latest`
+  - Start yacy container...
+```
+  podman run --rm -d --pod ai-stack --name yacy \
+    -v yacy_data:/opt/yacy_search_server/DATA \
+    yacy/yacy_search_server:latest
+```
+
+  - In **Open WebUI**, under **Admin Panel / Settings / Web Search**...
+    - ensure that **Web Search** is **enabled**
+    - **Web Search Engine** is set to **yacy**
+    - Under **Searxng Query URL**, set to `http://localhost:8090`
+    - Set **Yacy Username** to `admin` and **Yacy Password** to `yacy`
+    - Set **Search Result Count** to `5` and **Concurrent Requests** to `1`
+    - Click **Save** at the bottom of the page
 
 ---
 
@@ -442,6 +469,7 @@ podman run --rm -d --pod ai-stack --name open-terminal \
   - pgvector
   - open-terminal
   - searxng
+  - yacy
   - playwright
   - mcpo
 
