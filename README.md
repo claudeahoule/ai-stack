@@ -191,7 +191,7 @@ podman run --rm -d --pod ai-stack --name mcpo \
 </details>
 
 <details>
-  <summary>searxng (not longer using)</summary>
+  <summary>searxng (no longer using)</summary>
 
 <br>
 
