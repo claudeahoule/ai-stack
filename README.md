@@ -10,7 +10,6 @@ Well, this might help.
 - Open WebUI
 - Open Terminal
 - pgvector
-- searxng
 - yacy
 - playwright
 - mcpo
@@ -192,7 +191,7 @@ podman run --rm -d --pod ai-stack --name mcpo \
 </details>
 
 <details>
-  <summary>searxng</summary>
+  <summary>searxng (not longer using)</summary>
 
 <br>
 
@@ -468,7 +467,6 @@ podman run --rm -d --pod ai-stack --name open-terminal \
 - Additional podman containers running in same pod as open-webui...
   - pgvector
   - open-terminal
-  - searxng
   - yacy
   - playwright
   - mcpo
