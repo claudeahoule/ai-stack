@@ -38,6 +38,9 @@ nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.tot
 <br>
 
 - [Ollama](https://github.com/ollama/ollama)
+  - Ollama is the engine/framework used to run and manage local Large Language Models (LLMs)
+  - Think of the LLM as a high-end video game and Ollama as the gaming console; while the model provides the "content" and intelligence, Ollama handles all the complex technical infrastructure required to run it on your hardware.
+  - You can chat with a model running within Ollama, but it's not pretty.
   - Install however best works for you based on the link provided
   - I've installed Ollama on Linux via `curl -fsSL https://ollama.com/install.sh | sh` as well as containers running in podman
     - Both options work fine, but running ollama in a container (docker or podman) can sometimes require a little more set up for GPU access
@@ -101,7 +104,10 @@ podman pod create --name ai-stack -p 3000:8080
 <br>
 
 - [Open WebUI](https://github.com/open-webui/open-webui)
-  - You can read the official doc in the link above, or I just do it this way...
+  - The primary interface for interacting with models, managing documents, and using integrated tools.
+  - If Ollama is the console providing the power behind the scenes, Open WebUI is the User Interface: it provides a polished, easy-to-use dashboard so you can interact with the AI visually rather than through complex code.
+  - This is where you chat with a model, but Open WebUI provides so much more.
+  - In order to install Open WebUI, you can read the official doc in the link above, or I just do it this way...
   ```
   podman pull ghcr.io/open-webui/open-webui:main
   
@@ -140,6 +146,7 @@ podman pod create --name ai-stack -p 3000:8080
 <br>
 
 - MCPO
+  - Provides Model Context Protocol (MCP) capabilities, allowing for integration of external tools like time-servers or file systems.
   - mcpo isn't absolutely necessary to get started with Open WebUI. You can postpone the installation and set up of mcpo for later if you prefer.
   - `podman pull ghcr.io/open-webui/mcpo:latest`
   - install uv & npx on system
@@ -186,6 +193,8 @@ podman run --rm -d --pod ai-stack --name mcpo \
 <br>
 
 - [searxng](https://github.com/searxng/searxng)
+  - Note: I am no longer using searxng, but I'm leaving the documented below for reference (Who knows - I may come back to this some day)
+  - A self-hosted metasearch engine used to provide web search results within the interface.
   - `podman pull docker.io/searxng/searxng:latest`
   - `mkdir -p $HOME/searxng/data ; mkdir -p $HOME/searxng/config`
   - copy the minimalist example [settings.yml](https://github.com/claudeahoule/ai-stack/blob/main/components/searxng/config/settings.yml) file into `$HOME/searxng/config/settings.yml`
@@ -220,6 +229,7 @@ podman run --rm -d --pod ai-stack --name searxng \
 <br>
 
 - [yacy](https://github.com/yacy)
+  - A self-hosted metasearch engine used to provide web search results within the interface.
   - `podman pull docker.io/yacy/yacy_search_server:latest`
   - Start yacy container...
 ```
@@ -246,6 +256,7 @@ podman run --rm -d --pod ai-stack --name searxng \
 <br>
 
 - [playwright](https://github.com/microsoft/playwright)
+  - Enhances the power of search engines (like searxng/yacy) by providing more meaningful results through automated browser interactions.
   - Check **Open WebUI**'s requirement for the version of playwright under `https://raw.githubusercontent.com/open-webui/open-webui/refs/heads/main/backend/requirements.txt`
     - eg.
     ```
@@ -281,6 +292,7 @@ podman run --rm -d --pod ai-stack --name playwright \
 <br>
 
 - [pgvector](https://github.com/pgvector/pgvector)
+  - A specialized database extension used to index and store documents for Retrieval-Augmented Generation (RAG).
   - `podman pull pgvector/pgvector:pg16`
   - `mkdir $HOME/postgres_data`
   - Start pgvector podman container...
@@ -326,6 +338,7 @@ podman run --rm -d --pod ai-stack --name open-webui \
 <br>
 
 - [docling-serve](https://github.com/docling-project/docling-serve)
+  - Used as a content extraction engine to process and parse various document types.
   - Here you have a choice of running a CPU only or GPU enabled version of docling-serve
     - If you intend to run docling-serve on system with an NVIDIA GPU, then...
       - `podman pull quay.io/docling-project/docling-serve-cu128:latest`
@@ -382,6 +395,7 @@ podman run --rm -d --name docling-serve \
 <br>
 
 - [open-terminal](https://github.com/open-webui/open-terminal)
+  - Provides a terminal interface within the Open WebUI environment for executing commands.
   - [Open WebUI documenation for Open Terminal](https://docs.openwebui.com/features/open-terminal/setup/installation/)
   - `podman pull ghcr.io/open-webui/open-terminal`
   - chose a custom secret key to use with **Open Terminal**
