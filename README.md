@@ -6,16 +6,6 @@ Well, this might help.
 </p>
 
 ## Components
-- Ollama
-- Open WebUI
-- Open Terminal
-- pgvector
-- yacy
-- playwright
-- mcpo
-- docling-serve
-
-## Installing components
 
 <details>
   <summary>NVIDIA drivers</summary>
@@ -23,7 +13,7 @@ Well, this might help.
 <br>
 
 - If you want your AI stack components to have access to your GPU, ensure you have installed all of the latest drivers for your GPU card
-  - For NVIDIA, once I've installed the appropriate and latest driver for my card, I check using nvidia-smi as follows...
+  - For NVIDIA, once I've installed the appropriate and latest driver for my card, I usually check using nvidia-smi as follows...
 ```
 nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,utilization.memory,memory.total,memory.free,memory.used --format=csv
 
