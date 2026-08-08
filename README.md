@@ -716,7 +716,7 @@ podman run --rm -d --pod ai-stack --name open-terminal \
     <summary>consult_expert</summary>
 
   - Consult a specialized expert Workspace/Model in Open WebUI that has access to specialized Workspace/Knowlege base material
-    - Save [this file](components/open-webui/functions/function-token_count_display.json){:target="_blank"} locally
+    - Save [this file](components/open-webui/functions/function-token_count_display.json) locally
     - In 'Open WebUI', under 'Workspace / Tools'
     - Click on **Import** (top-right of page, near `+ New Tool` button)
     - Use the `function-token_count_display.json` file you just save above
