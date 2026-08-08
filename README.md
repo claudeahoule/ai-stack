@@ -5,6 +5,12 @@ Want to try building your own AI stack to run in a homelab?<br>
 Well, this might help.
 </p>
 
+## Overview
+
+![ai-stack-overview](docs/ai-stack-overview.jpeg)
+
+---
+
 ## Components
 
 <details>
