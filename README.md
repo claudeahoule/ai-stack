@@ -429,6 +429,19 @@ podman run --rm -d --pod ai-stack --name open-terminal \
 
 </details>
 
+<details>
+  <summary>OpenClaw</summary>
+
+<br>
+
+- [OpenClaw](https://github.com/openclaw/openclaw)
+  - `podman pull ghcr.io/openclaw/openclaw:latest`
+  - [see my messy notes for openclaw thus far](components/openclaw/blah.txt)
+
+---
+
+</details
+
 ---
 ---
 
