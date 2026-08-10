@@ -1,0 +1,27 @@
+```
+mkdir -p ~/openclaw/workspace
+podman run -it --name openclaw --pod ai-stack -v ~/openclaw:/home/node/.openclaw:Z,U -v ~/openclaw/workspace:/home/node/.openclaw/workspace:Z,U ghcr.io/openclaw/openclaw:latest bash
+openclaw setup
+
+podman restart openclaw
+
+after setting up ollama access in openclaw (via openclaw setup...use http://host.docker.internal:11434) and verifying it can see all of models in ollama...
+
+podman exec -it openclaw openclaw config set agents.defaults.model.primary "ollama/qwen3.5:2b-q4_K_M"
+
+podman restart openclaw
+
+podman exec -it openclaw openclaw config set gateway.port 18789
+
+podman restart openclaw
+
+podman exec -it openclaw curl -sS http://localhost:18789/v1/models -H "Authorization: Bearer XXXXXXXXXXXXXXXXXXXXXXX"
+where XXXXXXXXXXXXXXX is the openclaw api token
+
+get the openclaw api token like this...
+podman exec -it openclaw cat /home/node/.openclaw/openclaw.json | grep -B 10 -A 10 token
+
+
+in openwebui/admin panel/settings/connections/openai api, add a connection with url http://localhost:18789/v1 and api token
+
+```

@@ -5,17 +5,13 @@ Want to try building your own AI stack to run in a homelab?<br>
 Well, this might help.
 </p>
 
-## Components
-- Ollama
-- Open WebUI
-- Open Terminal
-- pgvector
-- searxng
-- playwright
-- mcpo
-- docling-serve
+## Overview
 
-## Installing components
+![ai-stack-overview](docs/ai-stack-overview.jpeg)
+
+---
+
+## Components
 
 <details>
   <summary>NVIDIA drivers</summary>
@@ -23,7 +19,7 @@ Well, this might help.
 <br>
 
 - If you want your AI stack components to have access to your GPU, ensure you have installed all of the latest drivers for your GPU card
-  - For NVIDIA, once I've installed the appropriate and latest driver for my card, I check using nvidia-smi as follows...
+  - For NVIDIA, once I've installed the appropriate and latest driver for my card, I usually check using nvidia-smi as follows...
 ```
 nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,utilization.memory,memory.total,memory.free,memory.used --format=csv
 
@@ -48,6 +44,9 @@ nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.tot
 <br>
 
 - [Ollama](https://github.com/ollama/ollama)
+  - Ollama is the engine/framework used to run and manage local Large Language Models (LLMs)
+  - Think of the LLM as a high-end video game and Ollama as the gaming console; while the model provides the "content" and intelligence, Ollama handles all the complex technical infrastructure required to run it on your hardware.
+  - You can chat with a model running within Ollama, but it's not pretty.
   - Install however best works for you based on the link provided
   - I've installed Ollama on Linux via `curl -fsSL https://ollama.com/install.sh | sh` as well as containers running in podman
     - Both options work fine, but running ollama in a container (docker or podman) can sometimes require a little more set up for GPU access
@@ -111,7 +110,10 @@ podman pod create --name ai-stack -p 3000:8080
 <br>
 
 - [Open WebUI](https://github.com/open-webui/open-webui)
-  - You can read the official doc in the link above, or I just do it this way...
+  - The primary interface for interacting with models, managing documents, and using integrated tools.
+  - If Ollama is the console providing the power behind the scenes, Open WebUI is the User Interface: it provides a polished, easy-to-use dashboard so you can interact with the AI visually rather than through complex code.
+  - This is where you chat with a model, but Open WebUI provides so much more.
+  - In order to install Open WebUI, you can read the official doc in the link above, or I just do it this way...
   ```
   podman pull ghcr.io/open-webui/open-webui:main
   
@@ -121,7 +123,7 @@ podman pod create --name ai-stack -p 3000:8080
     ghcr.io/open-webui/open-webui:main  
   ```
 
-  - The `-e USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \` line is for later, once you have `searxng` and `playwright` up and running, but I'm getting ahead of myself
+  - The `-e USER_AGENT="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \` line is for later, once you have `searxng/yacy` and `playwright` up and running, but I'm getting ahead of myself
   - If your Ollama instance runs on a different system than where you have installed/setup Open WebUI, then you'll need to add connection(s)
     - Under **Admin Panel / Settings / Connections**
     - Ensure that **Ollama API** is enabled
@@ -150,6 +152,7 @@ podman pod create --name ai-stack -p 3000:8080
 <br>
 
 - MCPO
+  - Provides Model Context Protocol (MCP) capabilities, allowing for integration of external tools like time-servers or file systems.
   - mcpo isn't absolutely necessary to get started with Open WebUI. You can postpone the installation and set up of mcpo for later if you prefer.
   - `podman pull ghcr.io/open-webui/mcpo:latest`
   - install uv & npx on system
@@ -191,11 +194,13 @@ podman run --rm -d --pod ai-stack --name mcpo \
 </details>
 
 <details>
-  <summary>searxng</summary>
+  <summary>searxng (no longer using)</summary>
 
 <br>
 
 - [searxng](https://github.com/searxng/searxng)
+  - Note: I am no longer using searxng, but I'm leaving the documented below for reference (Who knows - I may come back to this some day)
+  - A self-hosted metasearch engine used to provide web search results within the interface.
   - `podman pull docker.io/searxng/searxng:latest`
   - `mkdir -p $HOME/searxng/data ; mkdir -p $HOME/searxng/config`
   - copy the minimalist example [settings.yml](https://github.com/claudeahoule/ai-stack/blob/main/components/searxng/config/settings.yml) file into `$HOME/searxng/config/settings.yml`
@@ -225,11 +230,39 @@ podman run --rm -d --pod ai-stack --name searxng \
 </details>
 
 <details>
+  <summary>yacy</summary>
+
+<br>
+
+- [yacy](https://github.com/yacy)
+  - A self-hosted metasearch engine used to provide web search results within the interface.
+  - `podman pull docker.io/yacy/yacy_search_server:latest`
+  - Start yacy container...
+```
+  podman run --rm -d --pod ai-stack --name yacy \
+    -v yacy_data:/opt/yacy_search_server/DATA \
+    yacy/yacy_search_server:latest
+```
+
+  - In **Open WebUI**, under **Admin Panel / Settings / Web Search**...
+    - ensure that **Web Search** is **enabled**
+    - **Web Search Engine** is set to **yacy**
+    - Under **Searxng Query URL**, set to `http://localhost:8090`
+    - Set **Yacy Username** to `admin` and **Yacy Password** to `yacy`
+    - Set **Search Result Count** to `5` and **Concurrent Requests** to `1`
+    - Click **Save** at the bottom of the page
+
+---
+
+</details>
+
+<details>
   <summary>playwright</summary>
 
 <br>
 
 - [playwright](https://github.com/microsoft/playwright)
+  - Enhances the power of search engines (like searxng/yacy) by providing more meaningful results through automated browser interactions.
   - Check **Open WebUI**'s requirement for the version of playwright under `https://raw.githubusercontent.com/open-webui/open-webui/refs/heads/main/backend/requirements.txt`
     - eg.
     ```
@@ -265,6 +298,7 @@ podman run --rm -d --pod ai-stack --name playwright \
 <br>
 
 - [pgvector](https://github.com/pgvector/pgvector)
+  - A specialized database extension used to index and store documents for Retrieval-Augmented Generation (RAG).
   - `podman pull pgvector/pgvector:pg16`
   - `mkdir $HOME/postgres_data`
   - Start pgvector podman container...
@@ -311,6 +345,7 @@ podman run --rm -d --pod ai-stack --name open-webui \
 <br>
 
 - [docling-serve](https://github.com/docling-project/docling-serve)
+  - Used as a content extraction engine to process and parse various document types.
   - Here you have a choice of running a CPU only or GPU enabled version of docling-serve
     - If you intend to run docling-serve on system with an NVIDIA GPU, then...
       - `podman pull quay.io/docling-project/docling-serve-cu128:latest`
@@ -367,6 +402,7 @@ podman run --rm -d --name docling-serve \
 <br>
 
 - [open-terminal](https://github.com/open-webui/open-terminal)
+  - Provides a terminal interface within the Open WebUI environment for executing commands.
   - [Open WebUI documenation for Open Terminal](https://docs.openwebui.com/features/open-terminal/setup/installation/)
   - `podman pull ghcr.io/open-webui/open-terminal`
   - chose a custom secret key to use with **Open Terminal**
@@ -393,6 +429,19 @@ podman run --rm -d --pod ai-stack --name open-terminal \
 ---
 
 </details>
+
+<details>
+  <summary>OpenClaw</summary>
+
+<br>
+
+- [OpenClaw](https://github.com/openclaw/openclaw)
+  - `podman pull ghcr.io/openclaw/openclaw:latest`
+  - [see my messy notes for openclaw thus far](components/openclaw/blah.txt)
+
+---
+
+</details
 
 ---
 ---
@@ -442,7 +491,7 @@ podman run --rm -d --pod ai-stack --name open-terminal \
 - Additional podman containers running in same pod as open-webui...
   - pgvector
   - open-terminal
-  - searxng
+  - yacy
   - playwright
   - mcpo
 
@@ -681,76 +730,10 @@ podman run --rm -d --pod ai-stack --name open-terminal \
     <summary>consult_expert</summary>
 
   - Consult a specialized expert Workspace/Model in Open WebUI that has access to specialized Workspace/Knowlege base material
+    - Save [this file](components/open-webui/functions/function-token_count_display.json) locally
     - In 'Open WebUI', under 'Workspace / Tools'
-    - Create a '+ New Tool'
-    - Name it 'consult_expert'
-    - Give it a description of 'Consults a specialized expert model within the system'
-    - Copy/Paste the following code block
-    ```
-"""
-title: Expert Consultant
-author: you
-version: 1.1
-description: Consults a specialized expert model within the system.
-requirements: httpx
-"""
-
-import httpx
-from pydantic import BaseModel, Field
-
-
-class Tools:
-    class Valves(BaseModel):
-        api_key: str = Field(
-            default="",
-            description="Open WebUI API key (Settings > Account > API Keys) used to authenticate internal calls.",
-        )
-        base_url: str = Field(
-            default="http://localhost:3000",
-            description="Base URL of your Open WebUI instance.",
-        )
-        timeout_seconds: int = Field(
-            default=60,
-            description="Max time to wait for the expert model to respond before giving up.",
-        )
-
-    def __init__(self):
-        self.valves = self.Valves()
-
-    async def consult_expert(self, query: str, model_id: str) -> str:
-        """
-        Consults a specialized expert model within the system to retrieve
-        specialized information before synthesizing a response for the user.
-        :param query: The specific question or data request to be sent to the expert.
-        :param model_id: The internal ID of the target model (e.g., 'Med1' or 'Expert Linux SysAdm').
-        :return: The raw text response from the expert model.
-        """
-        url = self.valves.base_url + "/api/chat/completions"
-        headers = {
-            "Authorization": f"Bearer {self.valves.api_key}",
-            "Content-Type": "application/json",
-        }
-        payload = {
-            "model": model_id,
-            "messages": [{"role": "user", "content": query}],
-        }
-
-        try:
-            async with httpx.AsyncClient(timeout=self.valves.timeout_seconds) as client:
-                response = await client.post(url, headers=headers, json=payload)
-                response.raise_for_status()
-                data = response.json()
-                return data["choices"][0]["message"]["content"]
-        except httpx.TimeoutException:
-            return f"Error: expert model '{model_id}' did not respond within {self.valves.timeout_seconds} seconds."
-        except httpx.HTTPStatusError as e:
-            return f"Error: expert model returned status {e.response.status_code}: {e.response.text}"
-        except httpx.RequestError as e:
-            return f"Error contacting expert model: {e}"
-        except (KeyError, IndexError):
-            return f"Unexpected response format from expert model: {response.text}"
-
-    ```
+    - Click on **Import** (top-right of page, near `+ New Tool` button)
+    - Use the `function-token_count_display.json` file you just save above
     - Click on Save
     - Once saved, click on 'Tools' again at the top
     - Click on the gears icon next to 'consult_expert'
