@@ -158,7 +158,7 @@ podman pod create --name ai-stack -p 3000:8080
 
 <br>
 
-- MCPO
+- [MCPO](https://github.com/open-webui/mcpo)
   - Provides Model Context Protocol (MCP) capabilities, allowing for integration of external tools like time-servers or file systems.
   - mcpo isn't absolutely necessary to get started with Open WebUI. You can postpone the installation and set up of mcpo for later if you prefer.
   - `podman pull ghcr.io/open-webui/mcpo:latest`
