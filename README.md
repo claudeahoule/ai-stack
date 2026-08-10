@@ -80,7 +80,7 @@ nvidia-smi --query-gpu=timestamp,name,temperature.gpu,utilization.gpu,memory.tot
   ollama run qwen3.5:2b-q4_K_M
   ```
     - type '/bye' to exit ollama chat
-  - Here are more environment variables you may want to consider tweaking for your use cases...
+  - Here are more environment variables to set in ollama.service that you may want to consider tweaking for your use cases...
   ```
   Environment="OLLAMA_NUM_PARALLEL=2"
   Environment="OLLAMA_MAX_QUEUE=1024"
