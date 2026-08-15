@@ -463,7 +463,7 @@ podman run --rm -d --pod ai-stack --name open-terminal \
 | Custom Model Name | Base Model | Description | Function Calling | Temperature | max_tokens | top_k | top_p | repeat_penalty | num_ctx | num_thread | num_gpu | keep_alive |
 |-------------------|------------|-------------|------------------|-------------|------------|-------|-------|----------------|---------|------------|---------|------------|
 | VAI | gemma4:12b-it-q4_K_M | Virutal Assistant Intelligence | Native | 0.65 | 8192 | 40 | 0.9 | 1.1 | 32768 | Default | Default | 20m |
-| Code Assistant | qwen3.5:9b-q4_K_M | Code Assistant | Default | 0.1 | 8192 | Default | Default | Default | 32768 | Default | Default | Default |
+| Code Assistant | qwen2.5-coder:14b-instruct-q4_K_M | Code Assistant | Default | 0.1 | 8192 | Default | Default | Default | 32768 | Default | Default | Default |
 | Novelist | mistral-small:24b-instruct-2501-q4_K_M | Model to help write stories | Default | 0.75 | 16384 | Default | 0.9 | 1.15 | 16384 | 10 | 10 | Default |
 
 </details>
