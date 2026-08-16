@@ -254,7 +254,7 @@ podman run --rm -d --pod ai-stack --name searxng \
   - In **Open WebUI**, under **Admin Panel / Settings / Web Search**...
     - ensure that **Web Search** is **enabled**
     - **Web Search Engine** is set to **yacy**
-    - Under **Searxng Query URL**, set to `http://localhost:8090`
+    - Under **Yacy URL**, set to `http://localhost:8090`
     - Set **Yacy Username** to `admin` and **Yacy Password** to `yacy`
     - Set **Search Result Count** to `5` and **Concurrent Requests** to `1`
     - Click **Save** at the bottom of the page
@@ -293,7 +293,7 @@ podman run --rm -d --pod ai-stack --name playwright \
     - Leave all other settings at defaults for now
     - Click **Save** at the bottom of the page
 
-  - Now when you do web searches from within a chat session in Open WebUI, you'll get much more meaningful results than with just searxng alone.
+  - Now when you do web searches from within a chat session in Open WebUI, you'll get much more meaningful results than with just yacy alone.
 
 ---
 
