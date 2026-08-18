@@ -738,7 +738,9 @@ podman run --rm -d --pod ai-stack --name open-terminal \
 
   - Consult a specialized expert Workspace/Model in Open WebUI that has access to specialized Workspace/Knowlege base material
     - Download the tool-consult_expert.json file:
-      - `curl -o tool-consult_expert.json https://raw.githubusercontent.com/claudeahoule/ai-stack/refs/heads/main/components/open-webui/workspace/tools/tool-consult_expert.json`
+    ```
+    curl -o tool-consult_expert.json https://raw.githubusercontent.com/claudeahoule/ai-stack/refs/heads/main/components/open-webui/workspace/tools/tool-consult_expert.json`
+    ```
     - In 'Open WebUI', under 'Workspace / Tools'
     - Click on **Import** (top-right of page, near `+ New Tool` button)
     - Use the `function-token_count_display.json` file you just save above
