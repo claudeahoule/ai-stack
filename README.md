@@ -737,19 +737,19 @@ podman run --rm -d --pod ai-stack --name open-terminal \
     <summary>consult_expert</summary>
 
   - Consult a specialized expert Workspace/Model in Open WebUI that has access to specialized Workspace/Knowlege base material
-    - Download the tool-consult_expert.json file:
+    - Download the `tool-consult_expert.json` file:
     ```
     curl -o tool-consult_expert.json https://raw.githubusercontent.com/claudeahoule/ai-stack/refs/heads/main/components/open-webui/workspace/tools/tool-consult_expert.json`
     ```
-    - In 'Open WebUI', under 'Workspace / Tools'
-    - Click on **Import** (top-right of page, near `+ New Tool` button)
-    - Use the `function-token_count_display.json` file you just save above
-    - Click on Save
-    - Once saved, click on 'Tools' again at the top
-    - Click on the gears icon next to 'consult_expert'
-    - Paste the 'Open WebUI' API KEY you have in your account into 'Api Key' custom valve
-    - Set 'Base Url' to 'http://localhost:8080'
-    - Click Save
+    - In **Open WebUI**, under **Workspace / Tools**
+    - Click on **Import** (top-right of page, near **+ New Tool** button)
+    - Use the `tool-consult_expert.json` file you just save above
+    - Click on **Save**
+    - Once saved, click on **Tools** again at the top
+    - Click on the gears icon next to `consult_expert`
+    - Paste the **Open WebUI** API KEY you have in your account into `Api Key` custom valve
+    - Set **Base Url** to `http://localhost:8080`
+    - Click **Save**
 
 ---
 
@@ -767,9 +767,26 @@ podman run --rm -d --pod ai-stack --name open-terminal \
   </details>
 
   <details>
+    <summary>Token Counter Display</summary>
+
+  - Shows per-message and cumulative session token counts as a status notification after each response.
+    - Download the `function-token_count_display.json` file:
+    ```
+    curl -o function-token_count_display.json https://raw.githubusercontent.com/claudeahoule/ai-stack/refs/heads/main/components/open-webui/functions/function-token_count_display.json
+    ```
+    - In **Open WebUI**, under **Admin Panel / Functions **
+    - Click **Import**
+    - Navigate to where you downloaded the `function-token_count_display.json` file , choose it, and open
+    - Click **Confirm**
+    - **Enable** this new function
+    - Click on the three dots (...) beside it, **enable** it for **Global** as well
+    - Now you have token counts summarized at the top of each chat session response.
+
+  </details>
+
+  <details>
     <summary>WIP</summary>
 
-  - Token Counter Display: Shows per-message and cumulative session token counts as a status notification after each response.
   - save_to_knowledge - Saves the current message or the whole chat into an Open WebUI Knowledge Base for later RAG use.
   - Local Weather - Fetches current weather and forecast.
   - openwebui_ssh - Access Open WebUI node via ssh in order to run a curated suite of commands for health status and troubleshooting.
