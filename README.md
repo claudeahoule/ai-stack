@@ -864,3 +864,22 @@ journalctl -u ollama --since "15 minutes ago" --no-pager
 </blockquote>
 
 </details>
+
+<details>
+  <summary>No GPU? Got you covered</summary>
+
+  - If you don't have a GPU or similar, you can try the free-tier service from Google
+    1. **Sign in at Google AI Studio**
+        - Go to aistudio.google.com and sign in with any Google account. No credit card or Cloud project setup needed — AI Studio auto-creates a default project for you on first login.
+    2. **Generate the API key**
+        - Click 'Get API key' in the left sidebar (or go directly to aistudio.google.com/app/apikey), then click 'Create API key'. You can let it create a new Google Cloud project automatically, or attach it to an existing one. The key appears instantly, starting with 'AIza...' — copy it now and store it somewhere safe, since you'll need to re-view it in AI Studio if you lose it.
+    3. **Add a new connection in Open WebUI**
+        - In Open WebUI, go to Settings > Admin Settings > Connections (or Models, depending on version) and add a new OpenAI-API connection. Set the Base URL to https://generativelanguage.googleapis.com/v1beta/openai and paste the Gemini key as the API key — that single field is all the auth it needs.
+    4. **Confirm which model ID to use**
+        - Free-tier eligibility shifts between Gemini model generations as Google updates the lineup, so don't assume 'gemini-2.5-flash' is still the current free default — check aistudio.google.com/rate-limit (or the model picker in AI Studio) for the exact model IDs currently marked free on your account, then enter that exact string as the model name in Open WebUI.
+    5. **Test it with a message**
+        - Start a new chat in Open WebUI, pick the Gemini connection/model from the dropdown, and send a test message. If it responds, you're live and billing nothing as long as you stay under the free-tier daily/per-minute request caps.
+  - Warning/Caveat:
+      - "*On the completely free tier, Google may use your anonymized prompts and responses to improve their models. If you are sending highly sensitive personal data through your homelab, consider adding a credit card to upgrade to a "Pay-As-You-Go" tier—it keeps your data completely private, and you still only pay if you exceed the free allocations.*"
+
+</details>
