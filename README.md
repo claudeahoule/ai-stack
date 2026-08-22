@@ -805,7 +805,7 @@ podman run --rm -d --pod ai-stack --name open-terminal \
   - If you're a Windows user, you could...
     - Install Ollama directly onto your PC/laptop. Hopefully you have a GPU there. It'll help.
       - Just make sure to open up port 11434 on your Windows PC/Laptop firewall
-    - Install Oracle Virtualbox on your PC as well, and then download and build a Linux VM
+    - Install [Oracle Virtualbox](https://www.virtualbox.org/wiki/Downloads) on your PC as well, and then [download Fedora Linux](https://fedoraproject.org/workstation/download/) and build a Linux VM
       - I don't know how well the installation docs I provided would work on a Ubuntu image, but I know they'll work on Fedora 43 and 44 Workstation or Server
     - Might work under WSL2 on Windows
     - Once you have Open WebUI running in a VM, just configure **Admin Panel / Settings / Connections** to point to your PC/Laptop internal virtual IP (you may need to open up that firewall as well for port 11434...not sure).
@@ -881,5 +881,11 @@ journalctl -u ollama --since "15 minutes ago" --no-pager
         - Start a new chat in Open WebUI, pick the Gemini connection/model from the dropdown, and send a test message. If it responds, you're live and billing nothing as long as you stay under the free-tier daily/per-minute request caps.
   - Warning/Caveat:
       - "*On the completely free tier, Google may use your anonymized prompts and responses to improve their models. If you are sending highly sensitive personal data through your homelab, consider adding a credit card to upgrade to a "Pay-As-You-Go" tier—it keeps your data completely private, and you still only pay if you exceed the free allocations.*"
+  - Here's the list of free-tier models I have tried on my Open WebUI instance...
+    - models/gemini-3.5-flash
+    - models/gemini-3.5-flash-lite
+    - models/gemini-3.6-flash
+    - models/gemini-3.7-flash
+    - models/gemma-4-31b-it
 
 </details>
