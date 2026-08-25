@@ -881,6 +881,7 @@ journalctl -u ollama --since "15 minutes ago" --no-pager
         - Start a new chat in Open WebUI, pick the Gemini connection/model from the dropdown, and send a test message. If it responds, you're live and billing nothing as long as you stay under the free-tier daily/per-minute request caps.
   - Warning/Caveat:
       - "*On the completely free tier, Google may use your anonymized prompts and responses to improve their models. If you are sending highly sensitive personal data through your homelab, consider adding a credit card to upgrade to a "Pay-As-You-Go" tier—it keeps your data completely private, and you still only pay if you exceed the free allocations.*"
+  - I would also warn that the free-tier models can sometimes be overloaded and that chat session in Open WebUI may come back with nothing, stop in the middle of providing results, or come back with an error in the chat session indicating that the model service is unavailable due to excessive load on their systems.
   - Here's the list of free-tier models I have tried on my Open WebUI instance...
     - models/gemini-3.5-flash
     - models/gemini-3.5-flash-lite
