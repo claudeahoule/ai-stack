@@ -866,7 +866,12 @@ journalctl -u ollama --since "15 minutes ago" --no-pager
 </details>
 
 <details>
-  <summary>No GPU? Got you covered</summary>
+  <summary>No GPU? Got you covered with 'free-tier' models</summary>
+
+  <blockquote>
+
+  <details>
+    <summary>Google AI Studio</summary>
 
   - If you don't have a GPU or similar, you can try the free-tier service from Google
     1. **Sign in at Google AI Studio**
@@ -888,5 +893,25 @@ journalctl -u ollama --since "15 minutes ago" --no-pager
     - models/gemini-3.6-flash
     - models/gemini-3.7-flash
     - models/gemma-4-31b-it
+
+  </details>
+
+  <details>
+    <summary>Ollama - Cloud models</summary>
+
+  - Ollama provides a few free-tier models to try out.
+    1. [Sign-in/Sign-up Ollama account](https://ollama.com/signin)
+    2. Once signed in to Ollama, click on top right, pull-down menu and click **Settings**
+    3. On your local Ollama instance, you will add 'Cloud' models to your Ollama instance (you're just addint the meta-data, not actually pulling the whole model)
+    4. Run `ollama signin` and if your Ollama instance is running on your localhost, then it should automatically open a web browser to complete the signin. If not, it will print the url. Copy the url from the shell session and paste into a web browser to complete the sign-in process, which allows your local Ollama instance to connect to ollama.com, providing you access to free-tier models.
+    5. In Open WebUI, under your existing **Connection** to your Ollama instance, add the following models as you see fit...
+    - gemma4:31b-cloud
+    - nemotron-3-super:cloud
+    - gpt-oss:120b-cloud
+    6. There are more free-tier models to try. Verify under your **Settings** section of your Ollama account at ollama.com
+
+  </details>
+
+  </blockquote>
 
 </details>
