@@ -908,7 +908,8 @@ journalctl -u ollama --since "15 minutes ago" --no-pager
     - gemma4:31b-cloud
     - nemotron-3-super:cloud
     - gpt-oss:120b-cloud
-    6. There are more free-tier models to try. Verify under your **Settings** section of your Ollama account at ollama.com
+    6. There are a few more free-tier models to try. Verify under your **Settings** section of your Ollama account at ollama.com
+    7. Monitor your usage using the same page above at ollama.com
 
   </details>
 
