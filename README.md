@@ -918,7 +918,7 @@ journalctl -u ollama --since "15 minutes ago" --no-pager
 </details>
 
 <details>
-  <summary>stop/start podman container and pod via user systemd</summary>
+  <summary>stop/start podman pod containers via user systemd</summary>
 
   - WIP
 
