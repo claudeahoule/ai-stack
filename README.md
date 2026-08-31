@@ -455,7 +455,7 @@ podman run --rm -d --pod ai-stack --name open-terminal \
 
 <br>
 
-- I have multiple systems with GPUs at home. Not all of the same caliber, but sometimes I need to switch from on to another. I got tired of enabling/disabling different connections within Open WebUI, so I created a simply haproxy container image that points to my various systems running Ollama running on GPUs. There is no round-robing load balancing. The haproxy configuration simply starts with a 'top-down' approach. The best system with GPU is first, next strongest is 2nd, and so on. If the first system is offline for any reason, I go to the next system, and so forth. This means that each system needs to have the exact models available.
+- I have multiple systems with GPUs at home. Not all GPUs are of the same caliber, but sometimes I need to switch from on to another. I got tired of enabling/disabling different connections within Open WebUI, so I created a simply haproxy container image that points to my various systems running Ollama running on GPUs. There is no round-robing load balancing. The haproxy configuration simply starts with a 'top-down' approach. The best system with GPU is first, next strongest is 2nd, and so on. If the first system is offline for any reason, I go to the next system, and so forth. This means that each system needs to have the exact models available.
 - Here is a very simply configuration for the haproxy.cfg file:
 ```
 global
