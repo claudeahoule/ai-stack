@@ -448,7 +448,7 @@ podman run --rm -d --pod ai-stack --name open-terminal \
 
 ---
 
-</details
+</details>
 
 <details>
   <summary>HAProxy for Ollama</summary>
