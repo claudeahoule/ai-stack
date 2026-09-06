@@ -478,26 +478,6 @@ backend ollama_back
     option httpchk GET /
     server primary_host   192.168.7.48:11434 check
     server secondary_host 192.168.7.38:11434 check backup
-global
-    log stdout format raw local0
-    maxconn 2000
-
-defaults
-    mode http
-    timeout connect 5s
-    timeout client  30s
-    timeout server  120s
-    log global
-    option httplog
-
-frontend ollama_front
-    bind *:11434
-    default_backend ollama_back
-
-backend ollama_back
-    option httpchk GET /
-    server primary_host   192.168.7.48:11434 check
-    server secondary_host 192.168.7.38:11434 check backup
 
 ```
 
