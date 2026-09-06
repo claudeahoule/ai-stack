@@ -306,7 +306,7 @@ podman run --rm -d --pod ai-stack --name playwright \
 
 - [pgvector](https://github.com/pgvector/pgvector)
   - A specialized database extension used to index and store documents for Retrieval-Augmented Generation (RAG).
-  - `podman pull pgvector/pgvector:pg16`
+  - `podman pull docker.io/pgvector/pgvector:pg16`
   - `mkdir $HOME/postgres_data`
   - Start pgvector podman container...
 ```
