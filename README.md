@@ -503,6 +503,19 @@ podman run --rm -d --pod ai-stack --name ollama-haproxy \
 
 </details>
 
+<details>
+  <summary>hac-ssh-proxy</summary>
+
+<br>
+
+- [hac-ssh-proxy](https://github.com/claudeahoule/hac-ssh-proxy)
+  - This is a simple container that runs in the same pod, allowing OWUI chat sessions to be able to run commands on remote systems via ssh
+  - this is NOT an MCP service for ssh, but rather a Flask + OpenAPI proxy for running pre-approved commands over SSH
+  - considering I run this in a homelab environment, where OWUI and other components all run on a VM, all running in the same podman pod, the exposure risk is fairly low.
+  - Refer to the [hac-ssh-proxy](https://github.com/claudeahoule/hac-ssh-proxy) for more details.
+
+</details>
+
 ---
 ---
 
