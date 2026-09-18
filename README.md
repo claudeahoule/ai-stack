@@ -412,8 +412,10 @@ podman run --rm -d --name docling-serve \
   - Provides a terminal interface within the Open WebUI environment for executing commands.
   - [Open WebUI documenation for Open Terminal](https://docs.openwebui.com/features/open-terminal/setup/installation/)
   - `podman pull ghcr.io/open-webui/open-terminal`
-  - chose a custom secret key to use with **Open Terminal**
+  - choose a custom secret key to use with **Open Terminal**
     - **Open WebUI** will need this secret key in order to be able to communicate with **Open Terminal**
+    - `OPEN_TERMINAL_API_KEY` is just a secret you choose/create yourself when you launch the Open Terminal container/process. It's what gates access to the Open Terminal instance itself (its REST API), not something issued by Open WebUI
+    - Eg. `pwgen 64 -s -1` will create something for you, if you can't think of anything off the top of your head
   - Start open-terminal in a podman container...
 ```
 podman run --rm -d --pod ai-stack --name open-terminal \
