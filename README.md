@@ -518,8 +518,6 @@ podman run --rm -d --pod ai-stack --name ollama-haproxy \
 
 </details>
 
----
-
 <details>
   <summary>okp-mcp</summary>
 
@@ -527,6 +525,8 @@ podman run --rm -d --pod ai-stack --name ollama-haproxy \
 
 - [okp-mcp](https://github.com/rhel-lightspeed/okp-mcp)
   - if you have a Red Hat subscription to Satellite and can access/pull rhokp, then this okp-mcp might be something interesting to try
+
+---
 
 </details>
 
