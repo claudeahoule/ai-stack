@@ -525,6 +525,32 @@ podman run --rm -d --pod ai-stack --name ollama-haproxy \
 
 - [okp-mcp](https://github.com/rhel-lightspeed/okp-mcp)
   - if you have a Red Hat subscription to Satellite and can access/pull rhokp, then this okp-mcp might be something interesting to try
+  - after a git clone and podman build of okp-mcp, the following should help incorporate RHOKP into OWUI via mcpo
+```
+    podman pod create --name okp -p 8003:8080 -p 8000:8000
+
+    podman run --rm -d --pod okp \
+      --name rhokp \
+      --env-file rhokp_access_key \
+      -e SOLR_JETTY_HOST=0.0.0.0 \
+      -v okp-solr-data:/opt/solr/server/solr/portal/data \
+      registry.redhat.io/offline-knowledge-portal/rhokp-rhel9:latest
+
+    podman run --rm -d --pod okp \
+      --name okp-mcp \
+      -e MCP_TRANSPORT=streamable-http \
+      -e MCP_SOLR_URL=http://127.0.0.1:8983 \
+      localhost/okp-mcp:latest
+
+```
+  - add the following to your mcpo config
+```
+    "okp": {
+      "type": "streamable-http",
+      "url": "http://host.containers.internal:8000/mcp"
+    }
+```
+  - don't forget to add the new mcpo server to OWUI (hint: go to admin panel/integtrations)
 
 ---
 
