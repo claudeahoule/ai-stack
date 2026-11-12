@@ -1003,7 +1003,7 @@ journalctl -u ollama --since "15 minutes ago" --no-pager
   </details>
 
   <details>
-    <summary>Ollama - Cloud models</summary>
+    <summary>Ollama - Cloud models (NO LONGER FREE AS OF 2026-11-09)</summary>
 
   - Ollama provides a few free-tier models to try out.
     1. [Sign-in/Sign-up Ollama account](https://ollama.com/signin)
